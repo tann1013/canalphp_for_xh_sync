@@ -1,0 +1,1 @@
+{"clientDatas":[{"clientIdentity":{"clientId":1002,"destination":"example2","filter":".*\\..*"},"cursor":{"identity":{"slaveId":-1,"sourceAddress":{"address":"localhost","port":3308}},"postion":{"included":false,"journalName":"binlog.000003","position":4283,"serverId":1002,"timestamp":1592806978000}}}],"destination":"example2"}

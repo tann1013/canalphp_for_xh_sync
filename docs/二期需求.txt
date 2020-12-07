@@ -1,0 +1,188 @@
+
+一、厂发报表（alpha_reportdb.cgo_dealerladereport）各个字段含义
+
+//T200907395481
+CREATE TABLE `cgo_dealerladereport` (
+  `DLR_Id` varchar(50) NOT NULL COMMENT '销售订单编号（平台订单ID）', --
+  `DLR_LadeDate` datetime NOT NULL COMMENT '提货日期', --
+  `DLR_CId` varchar(50) NOT NULL COMMENT '子公司ID', --
+  `DLR_CName` varchar(100) NOT NULL COMMENT '子公司名', --
+  `DLR_ProductId` bigint(20) NOT NULL COMMENT '商品ID(关联子公司产品库ID)', --
+  `DLR_ProductName` varchar(100) NOT NULL COMMENT '商品名称', --
+
+
+
+//采购合同相关#alpha_dealerdb.cgo_purchasecontract
+`DLR_PCId` bigint(20) NOT NULL COMMENT '采购合同ID',----PC_Id#编号
+`DLR_PCNo` varchar(50) NOT NULL COMMENT '采购合同编号',---PC_ContractNo#合同编号
+`DLR_POId` varchar(50) NOT NULL COMMENT '采购订单编号',
+`DLR_POFactNum` decimal(12,2) DEFAULT NULL COMMENT '采购实际数量',
+`DLR_PCTaxRate` decimal(12,2) DEFAULT NULL COMMENT '采购税率',-----PC_TaxRate#税率
+`DLR_POFactPrice` decimal(12,2) DEFAULT NULL COMMENT '采购入账价格',
+`DLR_POPrice` decimal(12,2) NOT NULL COMMENT '采购单价(未入账价格)'
+`DLR_SupplierId` bigint(20) NOT NULL COMMENT '供应商ID',---PC_SellerId#卖方id
+`DLR_SupplierName` varchar(50) NOT NULL COMMENT '供应商名称',---PC_SellerName#卖方名称
+
+
+//销售合同相关#alpha_dealerdb.cgo_salescontract
+`DLR_SalesNum` decimal(12,4) NOT NULL COMMENT '销售计划数量',
+`DLR_SalesFactNum` decimal(12,4) DEFAULT NULL COMMENT '销售实际发货结算量',
+`DLR_SalesPrice` decimal(12,2) NOT NULL COMMENT '销售价格',
+`DLR_SCId` bigint(20) NOT NULL COMMENT '销售合同ID', -- SC_Id #主键编号GUID(关联现货会员账户表)
+`DLR_SCNo` varchar(50) NOT NULL COMMENT '销售合同编号', ----SC_ContractNo#合同编号
+`DLR_SCTaxRate` decimal(12,2) DEFAULT NULL COMMENT '销售税率',----SC_TaxRate#税率
+`DLR_SalesFactPrice` decimal(12,2) DEFAULT NULL COMMENT '销售实际单价',
+
+
+//物流合同相关#alpha_dealerdb.cgo_carriagecontract
+`DLR_LogisticId` bigint(20) NOT NULL COMMENT '物流商ID', ----CC_CarrierId#承运方id
+`DLR_LogisticName` varchar(50) NOT NULL COMMENT '物流商名称', ---- CC_CarrierName #承运方名称
+`DLR_CCTaxRate` decimal(12,2) DEFAULT NULL COMMENT '物流税率', ---- CC_TaxRate #税率
+`DLR_Freight` decimal(12,2) DEFAULT NULL COMMENT '物流运费单价',
+`DLR_FactFreight` decimal(12,2) DEFAULT NULL COMMENT '物流运费实际入账单价',
+`DLR_BuyerId` varchar(50) NOT NULL COMMENT '客户ID', ----CC_CustomerId#需方(客户)Id
+`DLR_BuyerName` varchar(50) NOT NULL COMMENT '客户名称', ----CC_CustomerName#需方(客户)姓名
+
+
+`DLR_WaybillNum` decimal(12,4) NOT NULL COMMENT '对应运单数量',
+`DLR_SCCarryType` smallint(6) NOT NULL COMMENT '结转方式 1厂发2中转3大单',
+`DLR_SCSaleType` smallint(6) NOT NULL COMMENT '业务类型:1=垫资直营;2=经销联营;3=经销服务(含平过);4=进口;5=预收款直营;6=赋能联营;7=赋能服务;8=其他;',
+`DLR_SCCountryName` varchar(50) DEFAULT NULL COMMENT '国家名称 业务类型为4.进口时',
+`DLR_SCProjectName` varchar(100) NOT NULL COMMENT '项目名称',
+`DLR_Status` smallint(6) NOT NULL COMMENT '平台订单状态(-1已删除0未知1待付款2提货中3已完成4退款中5已退款)',
+
+`DLR_Province` varchar(50) NOT NULL COMMENT '省份',
+`DLR_ProvinceCode` int(11) NOT NULL COMMENT '省份code',
+`DLR_City` varchar(50) NOT NULL COMMENT '城市名称',
+`DLR_CityCode` int(11) NOT NULL COMMENT '城市code',
+`DLR_Area` varchar(50) NOT NULL COMMENT '地区',
+`DLR_AreaCode` int(11) NOT NULL COMMENT '地区code',
+`DLR_Address` varchar(255) NOT NULL COMMENT '详细地址',
+`DLR_BId` int(11) NOT NULL COMMENT '品牌ID(关联品牌公共库)',
+`DLR_KId` int(11) NOT NULL COMMENT '品种ID(关联品种公共库)',
+`DLR_Packing` varchar(10) CHARACTER SET utf8 NOT NULL COMMENT '包装(散装/袋装)',
+`DLR_LRI_Id` bigint(20) NOT NULL DEFAULT '0' COMMENT '地址ID',
+`DLR_QuotesPrice` decimal(12,2) NOT NULL DEFAULT '0.00' COMMENT '行情通价格',
+`DLR_SCModeType` smallint(6) NOT NULL DEFAULT '0' COMMENT '定价规则',
+  PRIMARY KEY (`DLR_Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='厂发报表_直营订单';
+
+
+
+一、销售合同#alpha_dealerdb.cgo_salescontract #
+CREATE TABLE `cgo_salescontract` (
+  `SC_Id` bigint(20) NOT NULL COMMENT '主键编号GUID(关联现货会员账户表)',
+  `SC_ContractNo` varchar(50) NOT NULL COMMENT '合同编号',
+  `SC_ProjectName` varchar(100) NOT NULL DEFAULT '' COMMENT '项目名称',
+  `SC_Company` varchar(50) NOT NULL COMMENT '所属分公司',
+  `SC_CompanyName` varchar(50) NOT NULL COMMENT '所属分公司名称',
+  `SC_SupplierId` varchar(100) NOT NULL COMMENT '关联水泥供应商',
+  `SC_SupplierName` varchar(100) NOT NULL COMMENT '供应商名称',
+  `SC_SignDate` datetime NOT NULL COMMENT '签订日期',
+  `SC_StartDate` datetime NOT NULL COMMENT '合同开始时间',
+  `SC_EndDate` datetime NOT NULL COMMENT '合同结束时间',
+  `SC_SignUser` varchar(200) NOT NULL COMMENT '签订人',
+  `SC_SignAddress` text NOT NULL COMMENT '签订地点',
+  `SC_DutyMan` varchar(200) NOT NULL COMMENT '通讯地址',
+  `SC_Uid` varchar(100) NOT NULL COMMENT '客户',
+  `SC_Type` smallint(6) NOT NULL COMMENT '销售类型：1现金，2抵扣，3赊账',
+  `SC_LinkMan` varchar(200) NOT NULL COMMENT '业务员',
+  `SC_PayType` smallint(6) NOT NULL COMMENT '付款方式：1现金；2银行转账；7银行承兑汇票；15商业承兑汇票；16建信融通；17其他',
+  `SC_GetType` smallint(6) NOT NULL COMMENT '提货方式',
+  `SC_ShipType` smallint(6) NOT NULL COMMENT '运费结算方式',
+  `SC_Model` varchar(100) NOT NULL COMMENT '合同模板',
+  `SC_SaleType` smallint(6) NOT NULL COMMENT '业务类型1垫资直营；2经销联营；3经销服务(含平过)；4进口；5预收款直营；7赋能服务；8其他',
+  `SC_Content` longtext NOT NULL COMMENT '合同内容',
+  `SC_Remark` longtext NOT NULL COMMENT '附件',
+  `SC_CollateType` smallint(6) NOT NULL DEFAULT '0' COMMENT '对账基数：1出厂数量，2送达数量',
+  `SC_ScaleDifRate` decimal(10,4) NOT NULL DEFAULT '0.0000' COMMENT '合同磅差',
+  `SC_ProductType` smallint(6) NOT NULL DEFAULT '0' COMMENT '商品类型（1水泥；2熟料；3砂石；4矿粉；5水渣；6钢材；7干混砂浆；8混凝土；9掺合料；10沥青）',
+  `SC_IsFileTrue` smallint(6) NOT NULL DEFAULT '0' COMMENT '合同明细以附件为准(0否，1是)',
+  `SC_Status` smallint(6) NOT NULL COMMENT '-1已关闭，1待提交，2已完成，3审批中，4已拒绝,5待复核，6已复核，7待签署 8已签署',
+  `SC_InUId` varchar(50) NOT NULL COMMENT '添加人',
+  `SC_InDate` datetime NOT NULL COMMENT '添加时间',
+  `SC_InIP` varchar(50) NOT NULL COMMENT '添加IP',
+  `SC_UpUId` varchar(50) NOT NULL COMMENT '修改人',
+  `SC_UpDate` datetime NOT NULL COMMENT '修改时间',
+  `SC_UpIP` varchar(50) NOT NULL COMMENT '修改IP',
+  `SC_ProjectDetail` text COMMENT '项目说明',
+  `SC_OtherDetail` text COMMENT '其他特殊要求',
+  `SC_ProjectId` varchar(50) NOT NULL DEFAULT '' COMMENT '项目ID',
+  `SC_SpecialType` smallint(6) NOT NULL DEFAULT '0' COMMENT '特殊类型：1为四川经销商业务',
+  `SC_IsReceived` smallint(6) NOT NULL DEFAULT '0' COMMENT '是否收到合同(0未收到；1原件；2复印件)',
+  `SC_ReceivedDesc` text COMMENT '是否收到合同备注',
+  `SC_PostType` smallint(6) NOT NULL DEFAULT '0' COMMENT '合同类型：1平过，2非平过',
+  `SC_TaxRate` decimal(12,2) DEFAULT NULL COMMENT '税率',
+  `SC_CarryType` smallint(6) DEFAULT NULL COMMENT '结转方式 1厂发；2中转(堆储)；3大单',
+  `SC_CountryName` varchar(50) DEFAULT NULL COMMENT '国家名称 （业务类型为进口时填写）',
+  `SC_IsLock` smallint(6) DEFAULT NULL COMMENT '信控评估暂无 1是 0否',
+  `SC_CreditNo` varchar(50) DEFAULT NULL COMMENT '信用报告编号',
+  `SC_CreditFile` text COMMENT '信控评估报告附件',
+  `SC_AccountPeriod` int(11) DEFAULT NULL COMMENT '账期 单位天数  默认一个月30天',
+  `SC_SettlementDay` int(11) DEFAULT NULL COMMENT '结算日  每月几号',
+  `SC_Validity_Start` datetime DEFAULT NULL COMMENT '有效期截至时间',
+  `SC_Validity_End` datetime DEFAULT NULL COMMENT '有效期截至时间',
+  `SC_ValidityStatus` int(11) DEFAULT NULL COMMENT '有效期状态,0未执行，1执行中，2已结束',
+  `SC_ModeType` smallint(6) NOT NULL DEFAULT '0' COMMENT '定价规则：1客户负责物流；2供应商负责物流；3平台负责物流(两票制)；4平台负责物流(一票制)',
+  `SC_Category` smallint(6) DEFAULT NULL COMMENT '类别 1临时合同 2非标准 3标准',
+  `SC_LinkId` bigint(20) DEFAULT NULL COMMENT '关联临时合同ID',
+  `SC_SealWay` smallint(6) NOT NULL DEFAULT '0' COMMENT '盖章方式 1普通用印 2智能印章 3电子合同',
+  `SC_SellerProvinceCode` varchar(50) DEFAULT NULL COMMENT '卖方省份code',
+  `SC_SellerProvinceName` varchar(100) DEFAULT NULL COMMENT '卖方省份',
+  `SC_SellerCityCode` varchar(50) DEFAULT NULL COMMENT '卖方城市code',
+  `SC_SellerCityName` varchar(100) DEFAULT NULL COMMENT '卖方城市',
+  `SC_SellerAreaCode` varchar(50) DEFAULT NULL COMMENT '卖方地区code',
+  `SC_SellerAreaName` varchar(100) DEFAULT NULL COMMENT '卖方地区',
+  `SC_SellerAddress` varchar(100) DEFAULT NULL COMMENT '卖方详细地址',
+  `SC_SellerResidence` varchar(100) DEFAULT NULL COMMENT '卖方代表人',
+  `SC_SellerConsigner` varchar(100) DEFAULT NULL COMMENT '卖方委托人',
+  `SC_SellerMobile` varchar(100) DEFAULT NULL COMMENT '卖方手机号',
+  `SC_SellerFax` varchar(100) DEFAULT NULL COMMENT '卖方传真',
+  `SC_SellerBankName` varchar(100) DEFAULT NULL COMMENT '卖方开户银行',
+  `SC_SellerBankCode` varchar(100) DEFAULT NULL COMMENT '卖方银行账号',
+  `SC_SellerPostCode` varchar(50) DEFAULT NULL COMMENT '卖方邮编',
+  `SC_SellerWx` varchar(50) DEFAULT NULL COMMENT '卖方微信',
+  `SC_BuyerProvinceCode` varchar(50) DEFAULT NULL COMMENT '买方省份code',
+  `SC_BuyerProvinceName` varchar(100) DEFAULT NULL COMMENT '买方省份',
+  `SC_BuyerCityCode` varchar(50) DEFAULT NULL COMMENT '买方城市code',
+  `SC_BuyerCityName` varchar(100) DEFAULT NULL COMMENT '买方城市',
+  `SC_BuyerAreaCode` varchar(50) DEFAULT NULL COMMENT '买方地区code',
+  `SC_BuyerAreaName` varchar(100) DEFAULT NULL COMMENT '买方地区',
+  `SC_BuyerAddress` varchar(100) DEFAULT NULL COMMENT '买方详细地址',
+  `SC_BuyerResidence` varchar(100) DEFAULT NULL COMMENT '买方代表人',
+  `SC_BuyerConsigner` varchar(100) DEFAULT NULL COMMENT '买方委托人',
+  `SC_BuyerMobile` varchar(50) DEFAULT NULL COMMENT '买方手机号码',
+  `SC_BuyerFax` varchar(50) DEFAULT NULL COMMENT '买方传真',
+  `SC_BuyerBankName` varchar(100) DEFAULT NULL COMMENT '买方开户行',
+  `SC_BuyerBankCode` varchar(50) DEFAULT NULL COMMENT '买方银行账号',
+  `SC_BuyerPostCode` varchar(50) DEFAULT NULL COMMENT '买方邮编',
+  `SC_BuyerWx` varchar(50) DEFAULT NULL COMMENT '买方邮编',
+  `SC_Number` smallint(6) DEFAULT NULL COMMENT '合同份数',
+  `SC_BothNumber` smallint(6) DEFAULT NULL COMMENT '双方各持',
+  `SC_CustomerTaxNo` varchar(50) DEFAULT '' COMMENT '经销商税务登记',
+  `SC_CustomerName` varchar(50) DEFAULT '' COMMENT '经销商名',
+  `SC_CustomerNo` varchar(50) DEFAULT '' COMMENT '经销商编号',
+  `SC_CostProfitRate` decimal(12,2) DEFAULT NULL,
+  PRIMARY KEY (`SC_Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=gbk COMMENT='销售合同';
+
+
+
+
+
+二、采购合同#alpha_dealerdb.cgo_purchasecontract
+`PC_Status` smallint(6) NOT NULL COMMENT '-1已关闭，1待提交，2已完成，3审批中，4已拒绝,5待复核，6已复核，7待签署 8已签署',
+`PC_SealWay` smallint(6) DEFAULT '0' COMMENT '盖章方式 1普通用印 2智能印章 3电子合同',
+`PC_ModeType` smallint(6) NOT NULL DEFAULT '0' COMMENT '定价规则：1客户负责物流；2供应商负责物流；3平台负责物流(两票制)；4平台负责物流(一票制)'
+
+三、物流合同#alpha_dealerdb.cgo_carriagecontract
+`CC_ShipperId` varchar(50) NOT NULL COMMENT '托运方id',
+`CC_CarrierId` varchar(50) NOT NULL COMMENT '承运方id',
+`CC_CustomerId` varchar(50) NOT NULL DEFAULT '' COMMENT '需方(客户)Id',
+`CC_Status` smallint(6) NOT NULL DEFAULT '1' COMMENT '-1已关闭，1待提交，2已完成，3审批中，4已拒绝,5待复核，6已复核，7待签署 8已签署',
+`CC_SealWay` smallint(6) DEFAULT NULL COMMENT '盖章方式 1普通用印 2智能印章 3电子合同',
+
+
+
+
+

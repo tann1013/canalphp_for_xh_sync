@@ -1,0 +1,28 @@
+如何使用canalphp镜像
+1、 载入镜像
+docker load < swoole_bc_ext4.5.2-php7.1.tar
+
+2、启动容器
+//启动canapphp镜像为示例
+docker run -d --restart=always --name=Bankcement_Canal_Php_V2 -v /Users/tanjian/web/zhongjian_projects/libBackProjects/Bankcement_Canal_Php:/data -v /Users/tanjian/web/zhongjian_projects/libBackProjects/Bankcement_Canal_Php/supervisor/swoole.conf:/etc/supervisor/service.d/swoole.conf phpswoole/swoole_ext:4.5.2-php7.1-V2
+
+docker run -d
+--restart=always
+--name=Bankcement_Canal_Php_V2
+-v /Users/tanjian/web/zhongjian_projects/libBackProjects/Bankcement_Canal_Php:/data
+-v /Users/tanjian/web/zhongjian_projects/libBackProjects/Bankcement_Canal_Php/supervisor/swoole.conf:/etc/supervisor/service.d/swoole.conf
+-w data phpswoole/swoole_ext:4.5.2-php7.1-V2
+
+3、进入容器
+docker exec -it Bankcement_Canal_Php_V2 /bin/bash
+
+3.1 重启容器
+docker restart Bankcement_Canal_Php_V2
+
+4 常用docker命令
+docker ps -a
+docker logs Bankcement_Canal_Php_v2222
+docker images
+
+
+./configure --with-php-config=PATH

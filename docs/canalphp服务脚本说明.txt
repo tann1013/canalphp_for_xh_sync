@@ -1,0 +1,18 @@
+只有一个启动服务脚本和关闭服务脚本(根目录下)。
+startService.sh -- 启动canalphp服务(检查服务，启动订阅和消费)
+stopService.sh -- 关闭canalphp服务(全部订阅和消费、canalphp服务)
+
+新增了一些参数配置。
+//转换桶参数设置//5秒5条 （消息过滤中间件用到）
+'PAIL_SET' => [
+    'num'        => 5,//条数
+    'timeSecond' => 5,//秒
+],
+//过滤现货设置
+'COMMON_FILTER_ARR' => [
+    'isOpenFilter' => false,//是否过滤现货数据：true开启过滤 false关闭过滤
+],
+//消费相关设置
+'SPEND_SET' => [
+    'num'        => 5,//每次消费数量
+],

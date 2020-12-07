@@ -1,0 +1,10 @@
+
+1、在两个命令行执行脚本
+php consumer.php
+
+2、浏览器打开
+http://localhost:15672/#/connections
+
+127.0.0.1:52129  ?guest	running	○	AMQP 0-9-1	1	0 B/s	0 B/s
+127.0.0.1:52182  ?guest	running	○	AMQP 0-9-1	1	0 B/s	0 B/s
+
