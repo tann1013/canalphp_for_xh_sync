@@ -1,0 +1,8 @@
+// 本地测试时需要手工启动，当发布到测试环境及正式环境时docker回自动启动该脚本，可以查看/supervisor/swoole.conf配置
+1、启动swoole服务
+sh scripts/stopSwoole.sh
+sh scripts/startSwoole.sh
+
+2 给swoole发送数据
+//php public/sendData.php -- 已废弃
+

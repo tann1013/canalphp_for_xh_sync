@@ -15,25 +15,11 @@ return array(
     'SUB_DESTINATION' => 'example',//example
     //新增SUB_FILTER改为数组形式
     'SUB_FILTER_ARR' => [
-        'alpha_saaslogisticsdb.cgo_logisticsdispatch',
-        'alpha_saaslogisticsdb.cgo_logisticsorders',
-        'alpha_dealerdb.cgo_dealerladeinfo',
-        'alpha_dealerdb.cgo_purchaseorder',
-        //二期：合同相关
-        'alpha_dealerdb.cgo_salescontract',
-        'alpha_dealerdb.cgo_purchasecontract',
-        'alpha_dealerdb.cgo_carriagecontract',
+        'localdb_dev_saaslogisticsdb.cgo_logisticsorders',
     ],
     //5.DbTaskMapps
     'DB_TASK_MAPPS' => [
-        'alpha_saaslogisticsdb.cgo_logisticsdispatch' => 'DispatchChangeTask',
         'alpha_saaslogisticsdb.cgo_logisticsorders'   => 'OrderChangeTask',
-        'alpha_dealerdb.cgo_dealerladeinfo'           => 'XiaoshouOrderChangeTask',
-        'alpha_dealerdb.cgo_purchaseorder'            => 'CaigouOrderChangeTask',
-        //二期：合同相关
-        'alpha_dealerdb.cgo_purchasecontract'          => 'ContractForPurchaseChangeTask',
-        'alpha_dealerdb.cgo_salescontract'             => 'ContractForSalesChangeTask',
-        'alpha_dealerdb.cgo_carriagecontract'          => 'ContractForCarriageChangeTask',
     ],
     //6.接口重试时间区间 (说明：[2, 10]//表示的意思是接口重试两次，2秒再次调接口，假如失败，则10秒后再次调。)
     'RETRY_DATE_RANGE' => [

@@ -31,7 +31,7 @@ $ex->setType(AMQP_EX_TYPE_DIRECT);
 $ex->setFlags(AMQP_DURABLE);
 $ex->declareExchange();
 //创建10个消息
-for ($i=1;$i<=10;$i++){
+for ($i=1;$i<=999;$i++){
     //消息内容
     $msg = array(
         'data'  => 'message_'.$i,

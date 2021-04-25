@@ -54,8 +54,8 @@ require_once __DIR__ . '/../business/monitorTasks/ContractForCarriageChangeTask.
 
 //1.3 基础逻辑
 $conf = new \ConfigAct();
-$conf->loadConf(__DIR__ . '/../business/config/conf_for_entry.php');//71
-//$conf->loadConf(__DIR__ . '/../business/config/conf_for_entry_local.php');//local
+//$conf->loadConf(__DIR__ . '/../business/config/conf_for_entry.php');//71
+$conf->loadConf(__DIR__ . '/../business/config/conf_for_entry_local.php');//local
 $confSetting['current_env'] =  $conf->getConf('CURRENT_ENV');
 $confSetting['canal_ip'] = $conf->getConf('CANAL_IP');
 $confSetting['canal_ip_post'] = $conf->getConf('CANAL_IP_POST');
@@ -67,17 +67,20 @@ $confSetting['retry_date_range'] = $conf->getConf('RETRY_DATE_RANGE');//新增�
 $confSetting['sub_filter'] = implode(',', $confSetting['sub_filter_arr']);
 unset($confSetting['sub_filter_arr']);
 //新增设置参数
+/*
 $confSetting['pail_set'] = $conf->getConf('PAIL_SET');//转换桶参数配置 add 9-22
 $confSetting['common_filter_arr'] = $conf->getConf('COMMON_FILTER_ARR');//过滤现货设置 add 9-23
 $confSetting['redis_set'] = $conf->getConf('REDIS_SET');//新增redis货设置 add 9-24
 //$confSetting['redis_set']['host']、['password']、['database']、['port']
 $confSetting['quick_st'] = $conf->getConf('QUICK_ST');//新增快速消费设置 add 9-27
+*/
 //SPEND_SET_QUICK_ST
 
 /**
  * @param $content
  */
 function _writeLog($content){
+    echo  $content . PHP_EOL;
     $path =  __DIR__ . '/../logs/events-'.date('Y-m-d').'.log';
     file_put_contents($path, ''.date('Y-m-d H:i:s', time()).' '.$content.PHP_EOL, FILE_APPEND);
 }
@@ -101,7 +104,8 @@ function _quickGetAndForget($client){
  * @param $confSetting 配置变量
  */
 function mainProcess($confSetting){
-    try {
+    //try {
+        /*
         //1检测服务是否异常
         //1.1 检查swoole服务是否异常
         $sw = new \SwooleClient();
@@ -110,17 +114,22 @@ function mainProcess($confSetting){
         $rs = new \RedisClient();
         if(!is_object($rs->handle)){throw new \Exception('redis服务异常！', -102);}
 
+
         //2 实例化消息过滤中间件
         $msgMiddle = new \MsgFilterMiddle();
         //3 初始化变量
         $initStartTime = time();//启动脚本时间
         //$initTimes = 1;
-
+        */
         _writeLog('client_for_entry 准备订阅');
         $client = CanalConnectorFactory::createClient(CanalClient::TYPE_SOCKET_CLUE);
         $client->connect($confSetting['canal_ip'], $confSetting['canal_ip_post']);//**canal所在的主机ip**
         $client->checkValid();
-        $client->subscribe($confSetting['sub_client_id'], $confSetting['sub_destination'], $confSetting['sub_filter']);//dev_saaslogisticsdb.cgo_logisticsdispatch
+        //localdb_dev_saaslogisticsdb.cgo_logisticsorders
+        $client->subscribe($confSetting['sub_client_id'], $confSetting['sub_destination'], $confSetting['sub_filter']);
+
+    //var_dump($client);die;
+
         _writeLog('client_for_dispatch 开始订阅中：canal_ip='.$confSetting['canal_ip'].'; canal_ip_post='.$confSetting['canal_ip_post'].'; sub_client_id='.$confSetting['sub_client_id'].'; sub_destination='.$confSetting['sub_destination'].'; sub_filter='.$confSetting['sub_filter']);
 
         while (true) {
@@ -136,10 +145,10 @@ function mainProcess($confSetting){
                 //_writeLog('client_for_entry 需处理：'.sizeof($entries)."条数据");
                 if($entries){
                     foreach ($entries as $k=>$entry) {
-                        // Fmt::println($entry);
+                        Fmt::println($entry);
                         //_writeLog($k . '-this is $entry');
                         //1、事件解析(把binglog消息解析为api消息)
-                        BusinessTask::run($entry, $confSetting, $confSetting['db_task_mapps']);
+                        //BusinessTask::run($entry, $confSetting, $confSetting['db_task_mapps']);
                     }
                 }
             }
@@ -160,7 +169,10 @@ function mainProcess($confSetting){
         }
         $client->disConnect();
 
+        /*
     }catch (\Exception $e) {
+        //var_dump($e->getMessage());die;
+
         //echo $e->getMessage(), PHP_EOL;
         _writeLogForException('client:'.$e->getMessage());
         //@todo 新增连接Canal服务异常重试机制
@@ -173,7 +185,10 @@ function mainProcess($confSetting){
         _writeLog('服务异常重试中...');
 
         //3 递归调用
-        mainProcess($confSetting);
+        //mainProcess($confSetting);
+
     }
+    */
 }
+
 mainProcess($confSetting);

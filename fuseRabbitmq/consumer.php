@@ -13,7 +13,7 @@ $config = array(
     'login' => 'guest',
     'password' => 'guest'
 );
-//连接broker
+//1、连接broker
 $cnn = new AMQPConnection($config);
 //var_dump($config, $cnn);die;
 
