@@ -6,28 +6,28 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'c97eac05fc75cb4a9b0863f783940c1535dc93b5',
+    'reference' => '717042182b9312a3f89893fc0f8d6ec6c4575438',
     'name' => 'xingwenge/canal_php',
   ),
   'versions' => 
   array (
     'clue/socket-raw' => 
     array (
-      'pretty_version' => 'v1.4.1',
-      'version' => '1.4.1.0',
+      'pretty_version' => 'v1.5.0',
+      'version' => '1.5.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '00ab102d061f6cdb895e79dd4d69140c7bda31cc',
+      'reference' => '089ffa05fa75bdc4e919aac44bbc435b3ef640ef',
     ),
     'google/protobuf' => 
     array (
-      'pretty_version' => 'v3.13.0',
-      'version' => '3.13.0.0',
+      'pretty_version' => 'v3.17.0',
+      'version' => '3.17.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'fddc6c2439b190284f207143f6d37bf5b651cea6',
+      'reference' => 'a3aa9415fb6f331322728793f345c1eafc320970',
     ),
     'predis/predis' => 
     array (
@@ -36,7 +36,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '5f4b87080f4df0042a57d537137c1d2c17a2b79a',
+      'reference' => '305d167b087530bbbeadbb2cd6499663208d1b4c',
     ),
     'swoole/ide-helper' => 
     array (
@@ -44,8 +44,9 @@
       'version' => 'dev-master',
       'aliases' => 
       array (
+        0 => '9999999-dev',
       ),
-      'reference' => '3382a1844afb206cac064252f6b8b50115bf72bb',
+      'reference' => 'd29d71267f8ed4e4993dc057ca53ffdb5d2703b7',
     ),
     'xingwenge/canal_php' => 
     array (
@@ -54,7 +55,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'c97eac05fc75cb4a9b0863f783940c1535dc93b5',
+      'reference' => '717042182b9312a3f89893fc0f8d6ec6c4575438',
     ),
   ),
 );

@@ -1,21 +1,232 @@
-2021-04-25 11:44:09.009 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## set default uncaught exception handler
-2021-04-25 11:44:09.050 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## load canal configurations
-2021-04-25 11:44:09.068 [main] INFO  com.alibaba.otter.canal.deployer.CanalStarter - ## start the canal server.
-2021-04-25 11:44:09.146 [main] INFO  com.alibaba.otter.canal.deployer.CanalController - ## start the canal server[192.168.3.162(192.168.3.162):11111]
-2021-04-25 11:44:10.892 [main] INFO  com.alibaba.otter.canal.deployer.CanalStarter - ## the canal server is running now ......
-2021-04-25 13:46:48.734 [canal-instance-scan-0] INFO  com.alibaba.otter.canal.deployer.CanalController - auto notify stop example successful.
-2021-04-25 13:46:49.045 [canal-instance-scan-0] INFO  com.alibaba.otter.canal.deployer.CanalController - auto notify start example successful.
-2021-04-25 13:46:49.045 [canal-instance-scan-0] INFO  com.alibaba.otter.canal.deployer.CanalController - auto notify reload example successful.
-2021-04-25 13:50:39.813 [canal-instance-scan-0] INFO  com.alibaba.otter.canal.deployer.CanalController - auto notify stop example successful.
-2021-04-25 13:50:40.048 [canal-instance-scan-0] INFO  com.alibaba.otter.canal.deployer.CanalController - auto notify start example successful.
-2021-04-25 13:50:40.048 [canal-instance-scan-0] INFO  com.alibaba.otter.canal.deployer.CanalController - auto notify reload example successful.
-2021-04-25 13:57:00.468 [canal-instance-scan-0] INFO  com.alibaba.otter.canal.deployer.CanalController - auto notify stop example successful.
-2021-04-25 13:57:00.725 [canal-instance-scan-0] INFO  com.alibaba.otter.canal.deployer.CanalController - auto notify start example successful.
-2021-04-25 13:57:00.725 [canal-instance-scan-0] INFO  com.alibaba.otter.canal.deployer.CanalController - auto notify reload example successful.
-2021-04-25 13:57:15.936 [canal-instance-scan-0] INFO  com.alibaba.otter.canal.deployer.CanalController - auto notify stop example successful.
-2021-04-25 13:57:16.077 [canal-instance-scan-0] INFO  com.alibaba.otter.canal.deployer.CanalController - auto notify start example successful.
-2021-04-25 13:57:16.077 [canal-instance-scan-0] INFO  com.alibaba.otter.canal.deployer.CanalController - auto notify reload example successful.
-2021-04-25 13:58:56.192 [canal-instance-scan-0] INFO  com.alibaba.otter.canal.deployer.CanalController - auto notify stop example successful.
-2021-04-25 13:58:56.314 [canal-instance-scan-0] INFO  com.alibaba.otter.canal.deployer.CanalController - auto notify start example successful.
-2021-04-25 13:58:56.314 [canal-instance-scan-0] INFO  com.alibaba.otter.canal.deployer.CanalController - auto notify reload example successful.
-2021-04-25 14:10:16.593 [Hashed wheel timer #1] WARN  c.a.o.c.server.netty.handler.ClientAuthenticationHandler - channel:[id: 0x6997e058, /127.0.0.1:52343 => /127.0.0.1:11111] idle timeout exceeds, close channel to save server resources...
+2021-05-13 17:58:01.192 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## set default uncaught exception handler
+2021-05-13 17:58:01.231 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## load canal configurations
+2021-05-13 17:58:01.250 [main] INFO  com.alibaba.otter.canal.deployer.CanalStarter - ## start the canal server.
+2021-05-13 17:58:01.318 [main] INFO  com.alibaba.otter.canal.deployer.CanalController - ## start the canal server[192.168.3.162(192.168.3.162):11111]
+2021-05-13 17:58:01.365 [main] WARN  com.alibaba.otter.canal.prometheus.PrometheusService - Unable to start prometheus HTTPServer.
+java.net.BindException: Address already in use
+	at sun.nio.ch.Net.bind0(Native Method) ~[na:1.8.0_221]
+	at sun.nio.ch.Net.bind(Net.java:433) ~[na:1.8.0_221]
+	at sun.nio.ch.Net.bind(Net.java:425) ~[na:1.8.0_221]
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223) ~[na:1.8.0_221]
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74) ~[na:1.8.0_221]
+	at sun.net.httpserver.ServerImpl.bind(ServerImpl.java:133) ~[na:1.8.0_221]
+	at sun.net.httpserver.HttpServerImpl.bind(HttpServerImpl.java:54) ~[na:1.8.0_221]
+	at io.prometheus.client.exporter.HTTPServer.<init>(HTTPServer.java:145) ~[simpleclient_httpserver-0.4.0.jar:na]
+	at io.prometheus.client.exporter.HTTPServer.<init>(HTTPServer.java:165) ~[simpleclient_httpserver-0.4.0.jar:na]
+	at io.prometheus.client.exporter.HTTPServer.<init>(HTTPServer.java:172) ~[simpleclient_httpserver-0.4.0.jar:na]
+	at com.alibaba.otter.canal.prometheus.PrometheusService.initialize(PrometheusService.java:47) ~[canal.prometheus-1.1.5.jar:na]
+	at com.alibaba.otter.canal.server.embedded.CanalServerWithEmbedded.start(CanalServerWithEmbedded.java:77) [canal.server-1.1.5.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalController.start(CanalController.java:487) [canal.deployer-1.1.5.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalStarter.start(CanalStarter.java:89) [canal.deployer-1.1.5.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalLauncher.main(CanalLauncher.java:117) [canal.deployer-1.1.5.jar:na]
+2021-05-13 17:58:42.901 [main] ERROR com.alibaba.otter.canal.deployer.CanalLauncher - ## Something goes wrong when starting up the canal Server:
+org.jboss.netty.channel.ChannelException: Failed to bind to: 0.0.0.0/0.0.0.0:11111
+	at org.jboss.netty.bootstrap.ServerBootstrap.bind(ServerBootstrap.java:303) ~[netty-3.2.2.Final.jar:na]
+	at com.alibaba.otter.canal.server.netty.CanalServerWithNetty.start(CanalServerWithNetty.java:95) ~[canal.server-1.1.5.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalController.start(CanalController.java:517) ~[canal.deployer-1.1.5.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalStarter.start(CanalStarter.java:89) ~[canal.deployer-1.1.5.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalLauncher.main(CanalLauncher.java:117) ~[canal.deployer-1.1.5.jar:na]
+Caused by: java.net.BindException: Address already in use
+	at sun.nio.ch.Net.bind0(Native Method) ~[na:1.8.0_221]
+	at sun.nio.ch.Net.bind(Net.java:433) ~[na:1.8.0_221]
+	at sun.nio.ch.Net.bind(Net.java:425) ~[na:1.8.0_221]
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223) ~[na:1.8.0_221]
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74) ~[na:1.8.0_221]
+	at org.jboss.netty.channel.socket.nio.NioServerSocketPipelineSink.bind(NioServerSocketPipelineSink.java:148) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioServerSocketPipelineSink.handleServerSocket(NioServerSocketPipelineSink.java:100) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioServerSocketPipelineSink.eventSunk(NioServerSocketPipelineSink.java:74) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.channel.Channels.bind(Channels.java:468) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.channel.AbstractChannel.bind(AbstractChannel.java:200) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.bootstrap.ServerBootstrap$Binder.channelOpen(ServerBootstrap.java:348) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.channel.Channels.fireChannelOpen(Channels.java:176) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioServerSocketChannel.<init>(NioServerSocketChannel.java:85) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory.newChannel(NioServerSocketChannelFactory.java:142) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory.newChannel(NioServerSocketChannelFactory.java:90) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.bootstrap.ServerBootstrap.bind(ServerBootstrap.java:282) ~[netty-3.2.2.Final.jar:na]
+	... 4 common frames omitted
+2021-05-13 18:03:26.653 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## set default uncaught exception handler
+2021-05-13 18:03:26.691 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## load canal configurations
+2021-05-13 18:03:26.707 [main] INFO  com.alibaba.otter.canal.deployer.CanalStarter - ## start the canal server.
+2021-05-13 18:03:26.762 [main] INFO  com.alibaba.otter.canal.deployer.CanalController - ## start the canal server[192.168.3.162(192.168.3.162):11111]
+2021-05-13 18:03:26.804 [main] WARN  com.alibaba.otter.canal.prometheus.PrometheusService - Unable to start prometheus HTTPServer.
+java.net.BindException: Address already in use
+	at sun.nio.ch.Net.bind0(Native Method) ~[na:1.8.0_221]
+	at sun.nio.ch.Net.bind(Net.java:433) ~[na:1.8.0_221]
+	at sun.nio.ch.Net.bind(Net.java:425) ~[na:1.8.0_221]
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223) ~[na:1.8.0_221]
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74) ~[na:1.8.0_221]
+	at sun.net.httpserver.ServerImpl.bind(ServerImpl.java:133) ~[na:1.8.0_221]
+	at sun.net.httpserver.HttpServerImpl.bind(HttpServerImpl.java:54) ~[na:1.8.0_221]
+	at io.prometheus.client.exporter.HTTPServer.<init>(HTTPServer.java:145) ~[simpleclient_httpserver-0.4.0.jar:na]
+	at io.prometheus.client.exporter.HTTPServer.<init>(HTTPServer.java:165) ~[simpleclient_httpserver-0.4.0.jar:na]
+	at io.prometheus.client.exporter.HTTPServer.<init>(HTTPServer.java:172) ~[simpleclient_httpserver-0.4.0.jar:na]
+	at com.alibaba.otter.canal.prometheus.PrometheusService.initialize(PrometheusService.java:47) ~[canal.prometheus-1.1.5.jar:na]
+	at com.alibaba.otter.canal.server.embedded.CanalServerWithEmbedded.start(CanalServerWithEmbedded.java:77) [canal.server-1.1.5.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalController.start(CanalController.java:487) [canal.deployer-1.1.5.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalStarter.start(CanalStarter.java:89) [canal.deployer-1.1.5.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalLauncher.main(CanalLauncher.java:117) [canal.deployer-1.1.5.jar:na]
+2021-05-13 18:04:08.228 [main] ERROR com.alibaba.otter.canal.deployer.CanalLauncher - ## Something goes wrong when starting up the canal Server:
+org.jboss.netty.channel.ChannelException: Failed to bind to: 0.0.0.0/0.0.0.0:11111
+	at org.jboss.netty.bootstrap.ServerBootstrap.bind(ServerBootstrap.java:303) ~[netty-3.2.2.Final.jar:na]
+	at com.alibaba.otter.canal.server.netty.CanalServerWithNetty.start(CanalServerWithNetty.java:95) ~[canal.server-1.1.5.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalController.start(CanalController.java:517) ~[canal.deployer-1.1.5.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalStarter.start(CanalStarter.java:89) ~[canal.deployer-1.1.5.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalLauncher.main(CanalLauncher.java:117) ~[canal.deployer-1.1.5.jar:na]
+Caused by: java.net.BindException: Address already in use
+	at sun.nio.ch.Net.bind0(Native Method) ~[na:1.8.0_221]
+	at sun.nio.ch.Net.bind(Net.java:433) ~[na:1.8.0_221]
+	at sun.nio.ch.Net.bind(Net.java:425) ~[na:1.8.0_221]
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223) ~[na:1.8.0_221]
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74) ~[na:1.8.0_221]
+	at org.jboss.netty.channel.socket.nio.NioServerSocketPipelineSink.bind(NioServerSocketPipelineSink.java:148) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioServerSocketPipelineSink.handleServerSocket(NioServerSocketPipelineSink.java:100) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioServerSocketPipelineSink.eventSunk(NioServerSocketPipelineSink.java:74) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.channel.Channels.bind(Channels.java:468) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.channel.AbstractChannel.bind(AbstractChannel.java:200) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.bootstrap.ServerBootstrap$Binder.channelOpen(ServerBootstrap.java:348) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.channel.Channels.fireChannelOpen(Channels.java:176) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioServerSocketChannel.<init>(NioServerSocketChannel.java:85) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory.newChannel(NioServerSocketChannelFactory.java:142) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory.newChannel(NioServerSocketChannelFactory.java:90) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.bootstrap.ServerBootstrap.bind(ServerBootstrap.java:282) ~[netty-3.2.2.Final.jar:na]
+	... 4 common frames omitted
+2021-05-13 18:18:56.788 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## set default uncaught exception handler
+2021-05-13 18:18:56.826 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## load canal configurations
+2021-05-13 18:18:56.847 [main] INFO  com.alibaba.otter.canal.deployer.CanalStarter - ## start the canal server.
+2021-05-13 18:18:56.909 [main] INFO  com.alibaba.otter.canal.deployer.CanalController - ## start the canal server[192.168.3.162(192.168.3.162):11111]
+2021-05-13 18:18:56.961 [main] WARN  com.alibaba.otter.canal.prometheus.PrometheusService - Unable to start prometheus HTTPServer.
+java.net.BindException: Address already in use
+	at sun.nio.ch.Net.bind0(Native Method) ~[na:1.8.0_221]
+	at sun.nio.ch.Net.bind(Net.java:433) ~[na:1.8.0_221]
+	at sun.nio.ch.Net.bind(Net.java:425) ~[na:1.8.0_221]
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223) ~[na:1.8.0_221]
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74) ~[na:1.8.0_221]
+	at sun.net.httpserver.ServerImpl.bind(ServerImpl.java:133) ~[na:1.8.0_221]
+	at sun.net.httpserver.HttpServerImpl.bind(HttpServerImpl.java:54) ~[na:1.8.0_221]
+	at io.prometheus.client.exporter.HTTPServer.<init>(HTTPServer.java:145) ~[simpleclient_httpserver-0.4.0.jar:na]
+	at io.prometheus.client.exporter.HTTPServer.<init>(HTTPServer.java:165) ~[simpleclient_httpserver-0.4.0.jar:na]
+	at io.prometheus.client.exporter.HTTPServer.<init>(HTTPServer.java:172) ~[simpleclient_httpserver-0.4.0.jar:na]
+	at com.alibaba.otter.canal.prometheus.PrometheusService.initialize(PrometheusService.java:47) ~[canal.prometheus-1.1.5.jar:na]
+	at com.alibaba.otter.canal.server.embedded.CanalServerWithEmbedded.start(CanalServerWithEmbedded.java:77) [canal.server-1.1.5.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalController.start(CanalController.java:487) [canal.deployer-1.1.5.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalStarter.start(CanalStarter.java:89) [canal.deployer-1.1.5.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalLauncher.main(CanalLauncher.java:117) [canal.deployer-1.1.5.jar:na]
+2021-05-13 18:19:38.499 [main] ERROR com.alibaba.otter.canal.deployer.CanalLauncher - ## Something goes wrong when starting up the canal Server:
+org.jboss.netty.channel.ChannelException: Failed to bind to: 0.0.0.0/0.0.0.0:11111
+	at org.jboss.netty.bootstrap.ServerBootstrap.bind(ServerBootstrap.java:303) ~[netty-3.2.2.Final.jar:na]
+	at com.alibaba.otter.canal.server.netty.CanalServerWithNetty.start(CanalServerWithNetty.java:95) ~[canal.server-1.1.5.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalController.start(CanalController.java:517) ~[canal.deployer-1.1.5.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalStarter.start(CanalStarter.java:89) ~[canal.deployer-1.1.5.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalLauncher.main(CanalLauncher.java:117) ~[canal.deployer-1.1.5.jar:na]
+Caused by: java.net.BindException: Address already in use
+	at sun.nio.ch.Net.bind0(Native Method) ~[na:1.8.0_221]
+	at sun.nio.ch.Net.bind(Net.java:433) ~[na:1.8.0_221]
+	at sun.nio.ch.Net.bind(Net.java:425) ~[na:1.8.0_221]
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223) ~[na:1.8.0_221]
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74) ~[na:1.8.0_221]
+	at org.jboss.netty.channel.socket.nio.NioServerSocketPipelineSink.bind(NioServerSocketPipelineSink.java:148) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioServerSocketPipelineSink.handleServerSocket(NioServerSocketPipelineSink.java:100) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioServerSocketPipelineSink.eventSunk(NioServerSocketPipelineSink.java:74) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.channel.Channels.bind(Channels.java:468) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.channel.AbstractChannel.bind(AbstractChannel.java:200) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.bootstrap.ServerBootstrap$Binder.channelOpen(ServerBootstrap.java:348) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.channel.Channels.fireChannelOpen(Channels.java:176) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioServerSocketChannel.<init>(NioServerSocketChannel.java:85) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory.newChannel(NioServerSocketChannelFactory.java:142) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory.newChannel(NioServerSocketChannelFactory.java:90) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.bootstrap.ServerBootstrap.bind(ServerBootstrap.java:282) ~[netty-3.2.2.Final.jar:na]
+	... 4 common frames omitted
+2021-05-13 18:32:05.804 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## set default uncaught exception handler
+2021-05-13 18:32:05.848 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## load canal configurations
+2021-05-13 18:32:05.864 [main] INFO  com.alibaba.otter.canal.deployer.CanalStarter - ## start the canal server.
+2021-05-13 18:32:05.930 [main] INFO  com.alibaba.otter.canal.deployer.CanalController - ## start the canal server[192.168.3.162(192.168.3.162):11111]
+2021-05-13 18:32:05.977 [main] WARN  com.alibaba.otter.canal.prometheus.PrometheusService - Unable to start prometheus HTTPServer.
+java.net.BindException: Address already in use
+	at sun.nio.ch.Net.bind0(Native Method) ~[na:1.8.0_221]
+	at sun.nio.ch.Net.bind(Net.java:433) ~[na:1.8.0_221]
+	at sun.nio.ch.Net.bind(Net.java:425) ~[na:1.8.0_221]
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223) ~[na:1.8.0_221]
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74) ~[na:1.8.0_221]
+	at sun.net.httpserver.ServerImpl.bind(ServerImpl.java:133) ~[na:1.8.0_221]
+	at sun.net.httpserver.HttpServerImpl.bind(HttpServerImpl.java:54) ~[na:1.8.0_221]
+	at io.prometheus.client.exporter.HTTPServer.<init>(HTTPServer.java:145) ~[simpleclient_httpserver-0.4.0.jar:na]
+	at io.prometheus.client.exporter.HTTPServer.<init>(HTTPServer.java:165) ~[simpleclient_httpserver-0.4.0.jar:na]
+	at io.prometheus.client.exporter.HTTPServer.<init>(HTTPServer.java:172) ~[simpleclient_httpserver-0.4.0.jar:na]
+	at com.alibaba.otter.canal.prometheus.PrometheusService.initialize(PrometheusService.java:47) ~[canal.prometheus-1.1.5.jar:na]
+	at com.alibaba.otter.canal.server.embedded.CanalServerWithEmbedded.start(CanalServerWithEmbedded.java:77) [canal.server-1.1.5.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalController.start(CanalController.java:487) [canal.deployer-1.1.5.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalStarter.start(CanalStarter.java:89) [canal.deployer-1.1.5.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalLauncher.main(CanalLauncher.java:117) [canal.deployer-1.1.5.jar:na]
+2021-05-13 18:32:47.336 [main] ERROR com.alibaba.otter.canal.deployer.CanalLauncher - ## Something goes wrong when starting up the canal Server:
+org.jboss.netty.channel.ChannelException: Failed to bind to: 0.0.0.0/0.0.0.0:11111
+	at org.jboss.netty.bootstrap.ServerBootstrap.bind(ServerBootstrap.java:303) ~[netty-3.2.2.Final.jar:na]
+	at com.alibaba.otter.canal.server.netty.CanalServerWithNetty.start(CanalServerWithNetty.java:95) ~[canal.server-1.1.5.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalController.start(CanalController.java:517) ~[canal.deployer-1.1.5.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalStarter.start(CanalStarter.java:89) ~[canal.deployer-1.1.5.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalLauncher.main(CanalLauncher.java:117) ~[canal.deployer-1.1.5.jar:na]
+Caused by: java.net.BindException: Address already in use
+	at sun.nio.ch.Net.bind0(Native Method) ~[na:1.8.0_221]
+	at sun.nio.ch.Net.bind(Net.java:433) ~[na:1.8.0_221]
+	at sun.nio.ch.Net.bind(Net.java:425) ~[na:1.8.0_221]
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223) ~[na:1.8.0_221]
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74) ~[na:1.8.0_221]
+	at org.jboss.netty.channel.socket.nio.NioServerSocketPipelineSink.bind(NioServerSocketPipelineSink.java:148) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioServerSocketPipelineSink.handleServerSocket(NioServerSocketPipelineSink.java:100) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioServerSocketPipelineSink.eventSunk(NioServerSocketPipelineSink.java:74) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.channel.Channels.bind(Channels.java:468) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.channel.AbstractChannel.bind(AbstractChannel.java:200) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.bootstrap.ServerBootstrap$Binder.channelOpen(ServerBootstrap.java:348) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.channel.Channels.fireChannelOpen(Channels.java:176) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioServerSocketChannel.<init>(NioServerSocketChannel.java:85) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory.newChannel(NioServerSocketChannelFactory.java:142) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory.newChannel(NioServerSocketChannelFactory.java:90) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.bootstrap.ServerBootstrap.bind(ServerBootstrap.java:282) ~[netty-3.2.2.Final.jar:na]
+	... 4 common frames omitted
+2021-05-13 18:38:08.144 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## set default uncaught exception handler
+2021-05-13 18:38:08.193 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## load canal configurations
+2021-05-13 18:38:08.214 [main] INFO  com.alibaba.otter.canal.deployer.CanalStarter - ## start the canal server.
+2021-05-13 18:38:08.282 [main] INFO  com.alibaba.otter.canal.deployer.CanalController - ## start the canal server[192.168.3.162(192.168.3.162):11111]
+2021-05-13 18:38:08.326 [main] WARN  com.alibaba.otter.canal.prometheus.PrometheusService - Unable to start prometheus HTTPServer.
+java.net.BindException: Address already in use
+	at sun.nio.ch.Net.bind0(Native Method) ~[na:1.8.0_221]
+	at sun.nio.ch.Net.bind(Net.java:433) ~[na:1.8.0_221]
+	at sun.nio.ch.Net.bind(Net.java:425) ~[na:1.8.0_221]
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223) ~[na:1.8.0_221]
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74) ~[na:1.8.0_221]
+	at sun.net.httpserver.ServerImpl.bind(ServerImpl.java:133) ~[na:1.8.0_221]
+	at sun.net.httpserver.HttpServerImpl.bind(HttpServerImpl.java:54) ~[na:1.8.0_221]
+	at io.prometheus.client.exporter.HTTPServer.<init>(HTTPServer.java:145) ~[simpleclient_httpserver-0.4.0.jar:na]
+	at io.prometheus.client.exporter.HTTPServer.<init>(HTTPServer.java:165) ~[simpleclient_httpserver-0.4.0.jar:na]
+	at io.prometheus.client.exporter.HTTPServer.<init>(HTTPServer.java:172) ~[simpleclient_httpserver-0.4.0.jar:na]
+	at com.alibaba.otter.canal.prometheus.PrometheusService.initialize(PrometheusService.java:47) ~[canal.prometheus-1.1.5.jar:na]
+	at com.alibaba.otter.canal.server.embedded.CanalServerWithEmbedded.start(CanalServerWithEmbedded.java:77) [canal.server-1.1.5.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalController.start(CanalController.java:487) [canal.deployer-1.1.5.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalStarter.start(CanalStarter.java:89) [canal.deployer-1.1.5.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalLauncher.main(CanalLauncher.java:117) [canal.deployer-1.1.5.jar:na]
+2021-05-13 18:38:09.200 [main] ERROR com.alibaba.otter.canal.deployer.CanalLauncher - ## Something goes wrong when starting up the canal Server:
+org.jboss.netty.channel.ChannelException: Failed to bind to: 0.0.0.0/0.0.0.0:11111
+	at org.jboss.netty.bootstrap.ServerBootstrap.bind(ServerBootstrap.java:303) ~[netty-3.2.2.Final.jar:na]
+	at com.alibaba.otter.canal.server.netty.CanalServerWithNetty.start(CanalServerWithNetty.java:95) ~[canal.server-1.1.5.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalController.start(CanalController.java:517) ~[canal.deployer-1.1.5.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalStarter.start(CanalStarter.java:89) ~[canal.deployer-1.1.5.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalLauncher.main(CanalLauncher.java:117) ~[canal.deployer-1.1.5.jar:na]
+Caused by: java.net.BindException: Address already in use
+	at sun.nio.ch.Net.bind0(Native Method) ~[na:1.8.0_221]
+	at sun.nio.ch.Net.bind(Net.java:433) ~[na:1.8.0_221]
+	at sun.nio.ch.Net.bind(Net.java:425) ~[na:1.8.0_221]
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223) ~[na:1.8.0_221]
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74) ~[na:1.8.0_221]
+	at org.jboss.netty.channel.socket.nio.NioServerSocketPipelineSink.bind(NioServerSocketPipelineSink.java:148) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioServerSocketPipelineSink.handleServerSocket(NioServerSocketPipelineSink.java:100) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioServerSocketPipelineSink.eventSunk(NioServerSocketPipelineSink.java:74) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.channel.Channels.bind(Channels.java:468) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.channel.AbstractChannel.bind(AbstractChannel.java:200) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.bootstrap.ServerBootstrap$Binder.channelOpen(ServerBootstrap.java:348) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.channel.Channels.fireChannelOpen(Channels.java:176) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioServerSocketChannel.<init>(NioServerSocketChannel.java:85) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory.newChannel(NioServerSocketChannelFactory.java:142) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory.newChannel(NioServerSocketChannelFactory.java:90) ~[netty-3.2.2.Final.jar:na]
+	at org.jboss.netty.bootstrap.ServerBootstrap.bind(ServerBootstrap.java:282) ~[netty-3.2.2.Final.jar:na]
+	... 4 common frames omitted
+2021-05-13 18:48:18.156 [Hashed wheel timer #1] WARN  c.a.o.c.server.netty.handler.ClientAuthenticationHandler - channel:[id: 0x75030fb3, /127.0.0.1:58552 => /127.0.0.1:11111] idle timeout exceeds, close channel to save server resources...
+2021-05-13 18:50:56.054 [Hashed wheel timer #1] WARN  c.a.o.c.server.netty.handler.ClientAuthenticationHandler - channel:[id: 0x2377842d, /127.0.0.1:58567 => /127.0.0.1:11111] idle timeout exceeds, close channel to save server resources...
