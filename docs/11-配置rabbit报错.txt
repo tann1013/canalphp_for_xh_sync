@@ -1,0 +1,19 @@
+2021-05-14 13:44:26.874 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## set default uncaught exception handler
+2021-05-14 13:44:26.924 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## load canal configurations
+2021-05-14 13:44:27.435 [AMQP Connection 127.0.0.1:5672] WARN  com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occured (Exception message: Socket closed)
+2021-05-14 13:44:27.453 [main] ERROR com.alibaba.otter.canal.deployer.CanalLauncher - ## Something goes wrong when starting up the canal Server:
+com.alibaba.otter.canal.common.CanalException: Start RabbitMQ producer error
+Caused by: com.rabbitmq.client.AuthenticationFailureException: ACCESS_REFUSED - Login was refused using authentication mechanism PLAIN. For details see the broker logfile.
+	at com.rabbitmq.client.impl.AMQConnection.start(AMQConnection.java:364) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.impl.recovery.RecoveryAwareAMQConnectionFactory.newConnection(RecoveryAwareAMQConnectionFactory.java:64) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.impl.recovery.AutorecoveringConnection.init(AutorecoveringConnection.java:156) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1104) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1063) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1021) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1180) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.alibaba.otter.canal.connector.rabbitmq.producer.CanalRabbitMQProducer.init(CanalRabbitMQProducer.java:76) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalStarter.start(CanalStarter.java:72) ~[canal.deployer-1.1.5.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalLauncher.main(CanalLauncher.java:117) ~[canal.deployer-1.1.5.jar:na]
+
+
+

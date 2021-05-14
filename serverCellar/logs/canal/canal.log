@@ -1,233 +1,269 @@
-2021-05-13 17:58:01.192 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## set default uncaught exception handler
-2021-05-13 17:58:01.231 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## load canal configurations
-2021-05-13 17:58:01.250 [main] INFO  com.alibaba.otter.canal.deployer.CanalStarter - ## start the canal server.
-2021-05-13 17:58:01.318 [main] INFO  com.alibaba.otter.canal.deployer.CanalController - ## start the canal server[192.168.3.162(192.168.3.162):11111]
-2021-05-13 17:58:01.365 [main] WARN  com.alibaba.otter.canal.prometheus.PrometheusService - Unable to start prometheus HTTPServer.
-java.net.BindException: Address already in use
-	at sun.nio.ch.Net.bind0(Native Method) ~[na:1.8.0_221]
-	at sun.nio.ch.Net.bind(Net.java:433) ~[na:1.8.0_221]
-	at sun.nio.ch.Net.bind(Net.java:425) ~[na:1.8.0_221]
-	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223) ~[na:1.8.0_221]
-	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74) ~[na:1.8.0_221]
-	at sun.net.httpserver.ServerImpl.bind(ServerImpl.java:133) ~[na:1.8.0_221]
-	at sun.net.httpserver.HttpServerImpl.bind(HttpServerImpl.java:54) ~[na:1.8.0_221]
-	at io.prometheus.client.exporter.HTTPServer.<init>(HTTPServer.java:145) ~[simpleclient_httpserver-0.4.0.jar:na]
-	at io.prometheus.client.exporter.HTTPServer.<init>(HTTPServer.java:165) ~[simpleclient_httpserver-0.4.0.jar:na]
-	at io.prometheus.client.exporter.HTTPServer.<init>(HTTPServer.java:172) ~[simpleclient_httpserver-0.4.0.jar:na]
-	at com.alibaba.otter.canal.prometheus.PrometheusService.initialize(PrometheusService.java:47) ~[canal.prometheus-1.1.5.jar:na]
-	at com.alibaba.otter.canal.server.embedded.CanalServerWithEmbedded.start(CanalServerWithEmbedded.java:77) [canal.server-1.1.5.jar:na]
-	at com.alibaba.otter.canal.deployer.CanalController.start(CanalController.java:487) [canal.deployer-1.1.5.jar:na]
-	at com.alibaba.otter.canal.deployer.CanalStarter.start(CanalStarter.java:89) [canal.deployer-1.1.5.jar:na]
-	at com.alibaba.otter.canal.deployer.CanalLauncher.main(CanalLauncher.java:117) [canal.deployer-1.1.5.jar:na]
-2021-05-13 17:58:42.901 [main] ERROR com.alibaba.otter.canal.deployer.CanalLauncher - ## Something goes wrong when starting up the canal Server:
-org.jboss.netty.channel.ChannelException: Failed to bind to: 0.0.0.0/0.0.0.0:11111
-	at org.jboss.netty.bootstrap.ServerBootstrap.bind(ServerBootstrap.java:303) ~[netty-3.2.2.Final.jar:na]
-	at com.alibaba.otter.canal.server.netty.CanalServerWithNetty.start(CanalServerWithNetty.java:95) ~[canal.server-1.1.5.jar:na]
-	at com.alibaba.otter.canal.deployer.CanalController.start(CanalController.java:517) ~[canal.deployer-1.1.5.jar:na]
-	at com.alibaba.otter.canal.deployer.CanalStarter.start(CanalStarter.java:89) ~[canal.deployer-1.1.5.jar:na]
+2021-05-14 10:05:14.419 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## set default uncaught exception handler
+2021-05-14 10:05:14.478 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## load canal configurations
+2021-05-14 10:05:14.681 [AMQP Connection 127.0.0.1:5672] WARN  com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occured (Exception message: Socket closed)
+2021-05-14 10:05:14.692 [main] ERROR com.alibaba.otter.canal.deployer.CanalLauncher - ## Something goes wrong when starting up the canal Server:
+com.alibaba.otter.canal.common.CanalException: Start RabbitMQ producer error
+Caused by: com.rabbitmq.client.AuthenticationFailureException: ACCESS_REFUSED - Login was refused using authentication mechanism PLAIN. For details see the broker logfile.
+	at com.rabbitmq.client.impl.AMQConnection.start(AMQConnection.java:364) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.impl.recovery.RecoveryAwareAMQConnectionFactory.newConnection(RecoveryAwareAMQConnectionFactory.java:64) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.impl.recovery.AutorecoveringConnection.init(AutorecoveringConnection.java:156) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1104) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1063) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1021) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1180) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.alibaba.otter.canal.connector.rabbitmq.producer.CanalRabbitMQProducer.init(CanalRabbitMQProducer.java:76) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalStarter.start(CanalStarter.java:72) ~[canal.deployer-1.1.5.jar:na]
 	at com.alibaba.otter.canal.deployer.CanalLauncher.main(CanalLauncher.java:117) ~[canal.deployer-1.1.5.jar:na]
-Caused by: java.net.BindException: Address already in use
-	at sun.nio.ch.Net.bind0(Native Method) ~[na:1.8.0_221]
-	at sun.nio.ch.Net.bind(Net.java:433) ~[na:1.8.0_221]
-	at sun.nio.ch.Net.bind(Net.java:425) ~[na:1.8.0_221]
-	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223) ~[na:1.8.0_221]
-	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74) ~[na:1.8.0_221]
-	at org.jboss.netty.channel.socket.nio.NioServerSocketPipelineSink.bind(NioServerSocketPipelineSink.java:148) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.channel.socket.nio.NioServerSocketPipelineSink.handleServerSocket(NioServerSocketPipelineSink.java:100) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.channel.socket.nio.NioServerSocketPipelineSink.eventSunk(NioServerSocketPipelineSink.java:74) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.channel.Channels.bind(Channels.java:468) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.channel.AbstractChannel.bind(AbstractChannel.java:200) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.bootstrap.ServerBootstrap$Binder.channelOpen(ServerBootstrap.java:348) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.channel.Channels.fireChannelOpen(Channels.java:176) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.channel.socket.nio.NioServerSocketChannel.<init>(NioServerSocketChannel.java:85) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory.newChannel(NioServerSocketChannelFactory.java:142) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory.newChannel(NioServerSocketChannelFactory.java:90) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.bootstrap.ServerBootstrap.bind(ServerBootstrap.java:282) ~[netty-3.2.2.Final.jar:na]
-	... 4 common frames omitted
-2021-05-13 18:03:26.653 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## set default uncaught exception handler
-2021-05-13 18:03:26.691 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## load canal configurations
-2021-05-13 18:03:26.707 [main] INFO  com.alibaba.otter.canal.deployer.CanalStarter - ## start the canal server.
-2021-05-13 18:03:26.762 [main] INFO  com.alibaba.otter.canal.deployer.CanalController - ## start the canal server[192.168.3.162(192.168.3.162):11111]
-2021-05-13 18:03:26.804 [main] WARN  com.alibaba.otter.canal.prometheus.PrometheusService - Unable to start prometheus HTTPServer.
-java.net.BindException: Address already in use
-	at sun.nio.ch.Net.bind0(Native Method) ~[na:1.8.0_221]
-	at sun.nio.ch.Net.bind(Net.java:433) ~[na:1.8.0_221]
-	at sun.nio.ch.Net.bind(Net.java:425) ~[na:1.8.0_221]
-	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223) ~[na:1.8.0_221]
-	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74) ~[na:1.8.0_221]
-	at sun.net.httpserver.ServerImpl.bind(ServerImpl.java:133) ~[na:1.8.0_221]
-	at sun.net.httpserver.HttpServerImpl.bind(HttpServerImpl.java:54) ~[na:1.8.0_221]
-	at io.prometheus.client.exporter.HTTPServer.<init>(HTTPServer.java:145) ~[simpleclient_httpserver-0.4.0.jar:na]
-	at io.prometheus.client.exporter.HTTPServer.<init>(HTTPServer.java:165) ~[simpleclient_httpserver-0.4.0.jar:na]
-	at io.prometheus.client.exporter.HTTPServer.<init>(HTTPServer.java:172) ~[simpleclient_httpserver-0.4.0.jar:na]
-	at com.alibaba.otter.canal.prometheus.PrometheusService.initialize(PrometheusService.java:47) ~[canal.prometheus-1.1.5.jar:na]
-	at com.alibaba.otter.canal.server.embedded.CanalServerWithEmbedded.start(CanalServerWithEmbedded.java:77) [canal.server-1.1.5.jar:na]
-	at com.alibaba.otter.canal.deployer.CanalController.start(CanalController.java:487) [canal.deployer-1.1.5.jar:na]
-	at com.alibaba.otter.canal.deployer.CanalStarter.start(CanalStarter.java:89) [canal.deployer-1.1.5.jar:na]
-	at com.alibaba.otter.canal.deployer.CanalLauncher.main(CanalLauncher.java:117) [canal.deployer-1.1.5.jar:na]
-2021-05-13 18:04:08.228 [main] ERROR com.alibaba.otter.canal.deployer.CanalLauncher - ## Something goes wrong when starting up the canal Server:
-org.jboss.netty.channel.ChannelException: Failed to bind to: 0.0.0.0/0.0.0.0:11111
-	at org.jboss.netty.bootstrap.ServerBootstrap.bind(ServerBootstrap.java:303) ~[netty-3.2.2.Final.jar:na]
-	at com.alibaba.otter.canal.server.netty.CanalServerWithNetty.start(CanalServerWithNetty.java:95) ~[canal.server-1.1.5.jar:na]
-	at com.alibaba.otter.canal.deployer.CanalController.start(CanalController.java:517) ~[canal.deployer-1.1.5.jar:na]
-	at com.alibaba.otter.canal.deployer.CanalStarter.start(CanalStarter.java:89) ~[canal.deployer-1.1.5.jar:na]
+2021-05-14 10:06:10.344 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## set default uncaught exception handler
+2021-05-14 10:06:10.386 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## load canal configurations
+2021-05-14 10:06:10.647 [AMQP Connection 127.0.0.1:5672] WARN  com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occured (Exception message: Socket closed)
+2021-05-14 10:06:10.659 [main] ERROR com.alibaba.otter.canal.deployer.CanalLauncher - ## Something goes wrong when starting up the canal Server:
+com.alibaba.otter.canal.common.CanalException: Start RabbitMQ producer error
+Caused by: com.rabbitmq.client.AuthenticationFailureException: ACCESS_REFUSED - Login was refused using authentication mechanism PLAIN. For details see the broker logfile.
+	at com.rabbitmq.client.impl.AMQConnection.start(AMQConnection.java:364) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.impl.recovery.RecoveryAwareAMQConnectionFactory.newConnection(RecoveryAwareAMQConnectionFactory.java:64) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.impl.recovery.AutorecoveringConnection.init(AutorecoveringConnection.java:156) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1104) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1063) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1021) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1180) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.alibaba.otter.canal.connector.rabbitmq.producer.CanalRabbitMQProducer.init(CanalRabbitMQProducer.java:76) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalStarter.start(CanalStarter.java:72) ~[canal.deployer-1.1.5.jar:na]
 	at com.alibaba.otter.canal.deployer.CanalLauncher.main(CanalLauncher.java:117) ~[canal.deployer-1.1.5.jar:na]
-Caused by: java.net.BindException: Address already in use
-	at sun.nio.ch.Net.bind0(Native Method) ~[na:1.8.0_221]
-	at sun.nio.ch.Net.bind(Net.java:433) ~[na:1.8.0_221]
-	at sun.nio.ch.Net.bind(Net.java:425) ~[na:1.8.0_221]
-	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223) ~[na:1.8.0_221]
-	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74) ~[na:1.8.0_221]
-	at org.jboss.netty.channel.socket.nio.NioServerSocketPipelineSink.bind(NioServerSocketPipelineSink.java:148) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.channel.socket.nio.NioServerSocketPipelineSink.handleServerSocket(NioServerSocketPipelineSink.java:100) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.channel.socket.nio.NioServerSocketPipelineSink.eventSunk(NioServerSocketPipelineSink.java:74) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.channel.Channels.bind(Channels.java:468) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.channel.AbstractChannel.bind(AbstractChannel.java:200) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.bootstrap.ServerBootstrap$Binder.channelOpen(ServerBootstrap.java:348) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.channel.Channels.fireChannelOpen(Channels.java:176) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.channel.socket.nio.NioServerSocketChannel.<init>(NioServerSocketChannel.java:85) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory.newChannel(NioServerSocketChannelFactory.java:142) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory.newChannel(NioServerSocketChannelFactory.java:90) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.bootstrap.ServerBootstrap.bind(ServerBootstrap.java:282) ~[netty-3.2.2.Final.jar:na]
-	... 4 common frames omitted
-2021-05-13 18:18:56.788 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## set default uncaught exception handler
-2021-05-13 18:18:56.826 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## load canal configurations
-2021-05-13 18:18:56.847 [main] INFO  com.alibaba.otter.canal.deployer.CanalStarter - ## start the canal server.
-2021-05-13 18:18:56.909 [main] INFO  com.alibaba.otter.canal.deployer.CanalController - ## start the canal server[192.168.3.162(192.168.3.162):11111]
-2021-05-13 18:18:56.961 [main] WARN  com.alibaba.otter.canal.prometheus.PrometheusService - Unable to start prometheus HTTPServer.
-java.net.BindException: Address already in use
-	at sun.nio.ch.Net.bind0(Native Method) ~[na:1.8.0_221]
-	at sun.nio.ch.Net.bind(Net.java:433) ~[na:1.8.0_221]
-	at sun.nio.ch.Net.bind(Net.java:425) ~[na:1.8.0_221]
-	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223) ~[na:1.8.0_221]
-	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74) ~[na:1.8.0_221]
-	at sun.net.httpserver.ServerImpl.bind(ServerImpl.java:133) ~[na:1.8.0_221]
-	at sun.net.httpserver.HttpServerImpl.bind(HttpServerImpl.java:54) ~[na:1.8.0_221]
-	at io.prometheus.client.exporter.HTTPServer.<init>(HTTPServer.java:145) ~[simpleclient_httpserver-0.4.0.jar:na]
-	at io.prometheus.client.exporter.HTTPServer.<init>(HTTPServer.java:165) ~[simpleclient_httpserver-0.4.0.jar:na]
-	at io.prometheus.client.exporter.HTTPServer.<init>(HTTPServer.java:172) ~[simpleclient_httpserver-0.4.0.jar:na]
-	at com.alibaba.otter.canal.prometheus.PrometheusService.initialize(PrometheusService.java:47) ~[canal.prometheus-1.1.5.jar:na]
-	at com.alibaba.otter.canal.server.embedded.CanalServerWithEmbedded.start(CanalServerWithEmbedded.java:77) [canal.server-1.1.5.jar:na]
-	at com.alibaba.otter.canal.deployer.CanalController.start(CanalController.java:487) [canal.deployer-1.1.5.jar:na]
-	at com.alibaba.otter.canal.deployer.CanalStarter.start(CanalStarter.java:89) [canal.deployer-1.1.5.jar:na]
-	at com.alibaba.otter.canal.deployer.CanalLauncher.main(CanalLauncher.java:117) [canal.deployer-1.1.5.jar:na]
-2021-05-13 18:19:38.499 [main] ERROR com.alibaba.otter.canal.deployer.CanalLauncher - ## Something goes wrong when starting up the canal Server:
-org.jboss.netty.channel.ChannelException: Failed to bind to: 0.0.0.0/0.0.0.0:11111
-	at org.jboss.netty.bootstrap.ServerBootstrap.bind(ServerBootstrap.java:303) ~[netty-3.2.2.Final.jar:na]
-	at com.alibaba.otter.canal.server.netty.CanalServerWithNetty.start(CanalServerWithNetty.java:95) ~[canal.server-1.1.5.jar:na]
-	at com.alibaba.otter.canal.deployer.CanalController.start(CanalController.java:517) ~[canal.deployer-1.1.5.jar:na]
-	at com.alibaba.otter.canal.deployer.CanalStarter.start(CanalStarter.java:89) ~[canal.deployer-1.1.5.jar:na]
+2021-05-14 10:11:00.544 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## set default uncaught exception handler
+2021-05-14 10:11:00.591 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## load canal configurations
+2021-05-14 10:11:00.824 [AMQP Connection 127.0.0.1:5672] WARN  com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occured (Exception message: Socket closed)
+2021-05-14 10:11:00.839 [main] ERROR com.alibaba.otter.canal.deployer.CanalLauncher - ## Something goes wrong when starting up the canal Server:
+com.alibaba.otter.canal.common.CanalException: Start RabbitMQ producer error
+Caused by: com.rabbitmq.client.AuthenticationFailureException: ACCESS_REFUSED - Login was refused using authentication mechanism PLAIN. For details see the broker logfile.
+	at com.rabbitmq.client.impl.AMQConnection.start(AMQConnection.java:364) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.impl.recovery.RecoveryAwareAMQConnectionFactory.newConnection(RecoveryAwareAMQConnectionFactory.java:64) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.impl.recovery.AutorecoveringConnection.init(AutorecoveringConnection.java:156) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1104) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1063) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1021) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1180) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.alibaba.otter.canal.connector.rabbitmq.producer.CanalRabbitMQProducer.init(CanalRabbitMQProducer.java:76) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalStarter.start(CanalStarter.java:72) ~[canal.deployer-1.1.5.jar:na]
 	at com.alibaba.otter.canal.deployer.CanalLauncher.main(CanalLauncher.java:117) ~[canal.deployer-1.1.5.jar:na]
-Caused by: java.net.BindException: Address already in use
-	at sun.nio.ch.Net.bind0(Native Method) ~[na:1.8.0_221]
-	at sun.nio.ch.Net.bind(Net.java:433) ~[na:1.8.0_221]
-	at sun.nio.ch.Net.bind(Net.java:425) ~[na:1.8.0_221]
-	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223) ~[na:1.8.0_221]
-	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74) ~[na:1.8.0_221]
-	at org.jboss.netty.channel.socket.nio.NioServerSocketPipelineSink.bind(NioServerSocketPipelineSink.java:148) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.channel.socket.nio.NioServerSocketPipelineSink.handleServerSocket(NioServerSocketPipelineSink.java:100) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.channel.socket.nio.NioServerSocketPipelineSink.eventSunk(NioServerSocketPipelineSink.java:74) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.channel.Channels.bind(Channels.java:468) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.channel.AbstractChannel.bind(AbstractChannel.java:200) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.bootstrap.ServerBootstrap$Binder.channelOpen(ServerBootstrap.java:348) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.channel.Channels.fireChannelOpen(Channels.java:176) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.channel.socket.nio.NioServerSocketChannel.<init>(NioServerSocketChannel.java:85) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory.newChannel(NioServerSocketChannelFactory.java:142) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory.newChannel(NioServerSocketChannelFactory.java:90) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.bootstrap.ServerBootstrap.bind(ServerBootstrap.java:282) ~[netty-3.2.2.Final.jar:na]
-	... 4 common frames omitted
-2021-05-13 18:32:05.804 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## set default uncaught exception handler
-2021-05-13 18:32:05.848 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## load canal configurations
-2021-05-13 18:32:05.864 [main] INFO  com.alibaba.otter.canal.deployer.CanalStarter - ## start the canal server.
-2021-05-13 18:32:05.930 [main] INFO  com.alibaba.otter.canal.deployer.CanalController - ## start the canal server[192.168.3.162(192.168.3.162):11111]
-2021-05-13 18:32:05.977 [main] WARN  com.alibaba.otter.canal.prometheus.PrometheusService - Unable to start prometheus HTTPServer.
-java.net.BindException: Address already in use
-	at sun.nio.ch.Net.bind0(Native Method) ~[na:1.8.0_221]
-	at sun.nio.ch.Net.bind(Net.java:433) ~[na:1.8.0_221]
-	at sun.nio.ch.Net.bind(Net.java:425) ~[na:1.8.0_221]
-	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223) ~[na:1.8.0_221]
-	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74) ~[na:1.8.0_221]
-	at sun.net.httpserver.ServerImpl.bind(ServerImpl.java:133) ~[na:1.8.0_221]
-	at sun.net.httpserver.HttpServerImpl.bind(HttpServerImpl.java:54) ~[na:1.8.0_221]
-	at io.prometheus.client.exporter.HTTPServer.<init>(HTTPServer.java:145) ~[simpleclient_httpserver-0.4.0.jar:na]
-	at io.prometheus.client.exporter.HTTPServer.<init>(HTTPServer.java:165) ~[simpleclient_httpserver-0.4.0.jar:na]
-	at io.prometheus.client.exporter.HTTPServer.<init>(HTTPServer.java:172) ~[simpleclient_httpserver-0.4.0.jar:na]
-	at com.alibaba.otter.canal.prometheus.PrometheusService.initialize(PrometheusService.java:47) ~[canal.prometheus-1.1.5.jar:na]
-	at com.alibaba.otter.canal.server.embedded.CanalServerWithEmbedded.start(CanalServerWithEmbedded.java:77) [canal.server-1.1.5.jar:na]
-	at com.alibaba.otter.canal.deployer.CanalController.start(CanalController.java:487) [canal.deployer-1.1.5.jar:na]
-	at com.alibaba.otter.canal.deployer.CanalStarter.start(CanalStarter.java:89) [canal.deployer-1.1.5.jar:na]
-	at com.alibaba.otter.canal.deployer.CanalLauncher.main(CanalLauncher.java:117) [canal.deployer-1.1.5.jar:na]
-2021-05-13 18:32:47.336 [main] ERROR com.alibaba.otter.canal.deployer.CanalLauncher - ## Something goes wrong when starting up the canal Server:
-org.jboss.netty.channel.ChannelException: Failed to bind to: 0.0.0.0/0.0.0.0:11111
-	at org.jboss.netty.bootstrap.ServerBootstrap.bind(ServerBootstrap.java:303) ~[netty-3.2.2.Final.jar:na]
-	at com.alibaba.otter.canal.server.netty.CanalServerWithNetty.start(CanalServerWithNetty.java:95) ~[canal.server-1.1.5.jar:na]
-	at com.alibaba.otter.canal.deployer.CanalController.start(CanalController.java:517) ~[canal.deployer-1.1.5.jar:na]
-	at com.alibaba.otter.canal.deployer.CanalStarter.start(CanalStarter.java:89) ~[canal.deployer-1.1.5.jar:na]
+2021-05-14 10:12:05.815 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## set default uncaught exception handler
+2021-05-14 10:12:05.850 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## load canal configurations
+2021-05-14 10:12:06.054 [AMQP Connection 127.0.0.1:5672] WARN  com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occured (Exception message: Connection reset)
+2021-05-14 10:12:06.066 [main] ERROR com.alibaba.otter.canal.deployer.CanalLauncher - ## Something goes wrong when starting up the canal Server:
+com.alibaba.otter.canal.common.CanalException: Start RabbitMQ producer error
+Caused by: com.rabbitmq.client.AuthenticationFailureException: ACCESS_REFUSED - Login was refused using authentication mechanism PLAIN. For details see the broker logfile.
+	at com.rabbitmq.client.impl.AMQConnection.start(AMQConnection.java:364) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.impl.recovery.RecoveryAwareAMQConnectionFactory.newConnection(RecoveryAwareAMQConnectionFactory.java:64) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.impl.recovery.AutorecoveringConnection.init(AutorecoveringConnection.java:156) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1104) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1063) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1021) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1180) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.alibaba.otter.canal.connector.rabbitmq.producer.CanalRabbitMQProducer.init(CanalRabbitMQProducer.java:76) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalStarter.start(CanalStarter.java:72) ~[canal.deployer-1.1.5.jar:na]
 	at com.alibaba.otter.canal.deployer.CanalLauncher.main(CanalLauncher.java:117) ~[canal.deployer-1.1.5.jar:na]
-Caused by: java.net.BindException: Address already in use
-	at sun.nio.ch.Net.bind0(Native Method) ~[na:1.8.0_221]
-	at sun.nio.ch.Net.bind(Net.java:433) ~[na:1.8.0_221]
-	at sun.nio.ch.Net.bind(Net.java:425) ~[na:1.8.0_221]
-	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223) ~[na:1.8.0_221]
-	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74) ~[na:1.8.0_221]
-	at org.jboss.netty.channel.socket.nio.NioServerSocketPipelineSink.bind(NioServerSocketPipelineSink.java:148) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.channel.socket.nio.NioServerSocketPipelineSink.handleServerSocket(NioServerSocketPipelineSink.java:100) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.channel.socket.nio.NioServerSocketPipelineSink.eventSunk(NioServerSocketPipelineSink.java:74) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.channel.Channels.bind(Channels.java:468) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.channel.AbstractChannel.bind(AbstractChannel.java:200) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.bootstrap.ServerBootstrap$Binder.channelOpen(ServerBootstrap.java:348) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.channel.Channels.fireChannelOpen(Channels.java:176) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.channel.socket.nio.NioServerSocketChannel.<init>(NioServerSocketChannel.java:85) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory.newChannel(NioServerSocketChannelFactory.java:142) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory.newChannel(NioServerSocketChannelFactory.java:90) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.bootstrap.ServerBootstrap.bind(ServerBootstrap.java:282) ~[netty-3.2.2.Final.jar:na]
-	... 4 common frames omitted
-2021-05-13 18:38:08.144 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## set default uncaught exception handler
-2021-05-13 18:38:08.193 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## load canal configurations
-2021-05-13 18:38:08.214 [main] INFO  com.alibaba.otter.canal.deployer.CanalStarter - ## start the canal server.
-2021-05-13 18:38:08.282 [main] INFO  com.alibaba.otter.canal.deployer.CanalController - ## start the canal server[192.168.3.162(192.168.3.162):11111]
-2021-05-13 18:38:08.326 [main] WARN  com.alibaba.otter.canal.prometheus.PrometheusService - Unable to start prometheus HTTPServer.
-java.net.BindException: Address already in use
-	at sun.nio.ch.Net.bind0(Native Method) ~[na:1.8.0_221]
-	at sun.nio.ch.Net.bind(Net.java:433) ~[na:1.8.0_221]
-	at sun.nio.ch.Net.bind(Net.java:425) ~[na:1.8.0_221]
-	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223) ~[na:1.8.0_221]
-	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74) ~[na:1.8.0_221]
-	at sun.net.httpserver.ServerImpl.bind(ServerImpl.java:133) ~[na:1.8.0_221]
-	at sun.net.httpserver.HttpServerImpl.bind(HttpServerImpl.java:54) ~[na:1.8.0_221]
-	at io.prometheus.client.exporter.HTTPServer.<init>(HTTPServer.java:145) ~[simpleclient_httpserver-0.4.0.jar:na]
-	at io.prometheus.client.exporter.HTTPServer.<init>(HTTPServer.java:165) ~[simpleclient_httpserver-0.4.0.jar:na]
-	at io.prometheus.client.exporter.HTTPServer.<init>(HTTPServer.java:172) ~[simpleclient_httpserver-0.4.0.jar:na]
-	at com.alibaba.otter.canal.prometheus.PrometheusService.initialize(PrometheusService.java:47) ~[canal.prometheus-1.1.5.jar:na]
-	at com.alibaba.otter.canal.server.embedded.CanalServerWithEmbedded.start(CanalServerWithEmbedded.java:77) [canal.server-1.1.5.jar:na]
-	at com.alibaba.otter.canal.deployer.CanalController.start(CanalController.java:487) [canal.deployer-1.1.5.jar:na]
-	at com.alibaba.otter.canal.deployer.CanalStarter.start(CanalStarter.java:89) [canal.deployer-1.1.5.jar:na]
-	at com.alibaba.otter.canal.deployer.CanalLauncher.main(CanalLauncher.java:117) [canal.deployer-1.1.5.jar:na]
-2021-05-13 18:38:09.200 [main] ERROR com.alibaba.otter.canal.deployer.CanalLauncher - ## Something goes wrong when starting up the canal Server:
-org.jboss.netty.channel.ChannelException: Failed to bind to: 0.0.0.0/0.0.0.0:11111
-	at org.jboss.netty.bootstrap.ServerBootstrap.bind(ServerBootstrap.java:303) ~[netty-3.2.2.Final.jar:na]
-	at com.alibaba.otter.canal.server.netty.CanalServerWithNetty.start(CanalServerWithNetty.java:95) ~[canal.server-1.1.5.jar:na]
-	at com.alibaba.otter.canal.deployer.CanalController.start(CanalController.java:517) ~[canal.deployer-1.1.5.jar:na]
-	at com.alibaba.otter.canal.deployer.CanalStarter.start(CanalStarter.java:89) ~[canal.deployer-1.1.5.jar:na]
+2021-05-14 10:27:08.484 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## set default uncaught exception handler
+2021-05-14 10:27:08.533 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## load canal configurations
+2021-05-14 10:27:08.742 [AMQP Connection 127.0.0.1:5672] WARN  com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occured (Exception message: Socket closed)
+2021-05-14 10:27:08.752 [main] ERROR com.alibaba.otter.canal.deployer.CanalLauncher - ## Something goes wrong when starting up the canal Server:
+com.alibaba.otter.canal.common.CanalException: Start RabbitMQ producer error
+Caused by: com.rabbitmq.client.AuthenticationFailureException: ACCESS_REFUSED - Login was refused using authentication mechanism PLAIN. For details see the broker logfile.
+	at com.rabbitmq.client.impl.AMQConnection.start(AMQConnection.java:364) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.impl.recovery.RecoveryAwareAMQConnectionFactory.newConnection(RecoveryAwareAMQConnectionFactory.java:64) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.impl.recovery.AutorecoveringConnection.init(AutorecoveringConnection.java:156) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1104) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1063) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1021) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1180) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.alibaba.otter.canal.connector.rabbitmq.producer.CanalRabbitMQProducer.init(CanalRabbitMQProducer.java:76) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalStarter.start(CanalStarter.java:72) ~[canal.deployer-1.1.5.jar:na]
 	at com.alibaba.otter.canal.deployer.CanalLauncher.main(CanalLauncher.java:117) ~[canal.deployer-1.1.5.jar:na]
-Caused by: java.net.BindException: Address already in use
-	at sun.nio.ch.Net.bind0(Native Method) ~[na:1.8.0_221]
-	at sun.nio.ch.Net.bind(Net.java:433) ~[na:1.8.0_221]
-	at sun.nio.ch.Net.bind(Net.java:425) ~[na:1.8.0_221]
-	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223) ~[na:1.8.0_221]
-	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74) ~[na:1.8.0_221]
-	at org.jboss.netty.channel.socket.nio.NioServerSocketPipelineSink.bind(NioServerSocketPipelineSink.java:148) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.channel.socket.nio.NioServerSocketPipelineSink.handleServerSocket(NioServerSocketPipelineSink.java:100) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.channel.socket.nio.NioServerSocketPipelineSink.eventSunk(NioServerSocketPipelineSink.java:74) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.channel.Channels.bind(Channels.java:468) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.channel.AbstractChannel.bind(AbstractChannel.java:200) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.bootstrap.ServerBootstrap$Binder.channelOpen(ServerBootstrap.java:348) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.channel.Channels.fireChannelOpen(Channels.java:176) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.channel.socket.nio.NioServerSocketChannel.<init>(NioServerSocketChannel.java:85) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory.newChannel(NioServerSocketChannelFactory.java:142) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory.newChannel(NioServerSocketChannelFactory.java:90) ~[netty-3.2.2.Final.jar:na]
-	at org.jboss.netty.bootstrap.ServerBootstrap.bind(ServerBootstrap.java:282) ~[netty-3.2.2.Final.jar:na]
-	... 4 common frames omitted
-2021-05-13 18:48:18.156 [Hashed wheel timer #1] WARN  c.a.o.c.server.netty.handler.ClientAuthenticationHandler - channel:[id: 0x75030fb3, /127.0.0.1:58552 => /127.0.0.1:11111] idle timeout exceeds, close channel to save server resources...
-2021-05-13 18:50:56.054 [Hashed wheel timer #1] WARN  c.a.o.c.server.netty.handler.ClientAuthenticationHandler - channel:[id: 0x2377842d, /127.0.0.1:58567 => /127.0.0.1:11111] idle timeout exceeds, close channel to save server resources...
-2021-05-13 18:52:00.555 [Hashed wheel timer #1] WARN  c.a.o.c.server.netty.handler.ClientAuthenticationHandler - channel:[id: 0x3333cb26, /127.0.0.1:58576 => /127.0.0.1:11111] idle timeout exceeds, close channel to save server resources...
+2021-05-14 10:29:07.271 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## set default uncaught exception handler
+2021-05-14 10:29:07.317 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## load canal configurations
+2021-05-14 10:29:07.466 [AMQP Connection 127.0.0.1:5672] WARN  com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occured (Exception message: Connection reset)
+2021-05-14 10:29:07.478 [main] ERROR com.alibaba.otter.canal.deployer.CanalLauncher - ## Something goes wrong when starting up the canal Server:
+com.alibaba.otter.canal.common.CanalException: Start RabbitMQ producer error
+Caused by: com.rabbitmq.client.AuthenticationFailureException: ACCESS_REFUSED - Login was refused using authentication mechanism PLAIN. For details see the broker logfile.
+	at com.rabbitmq.client.impl.AMQConnection.start(AMQConnection.java:364) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.impl.recovery.RecoveryAwareAMQConnectionFactory.newConnection(RecoveryAwareAMQConnectionFactory.java:64) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.impl.recovery.AutorecoveringConnection.init(AutorecoveringConnection.java:156) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1104) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1063) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1021) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1180) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.alibaba.otter.canal.connector.rabbitmq.producer.CanalRabbitMQProducer.init(CanalRabbitMQProducer.java:76) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalStarter.start(CanalStarter.java:72) ~[canal.deployer-1.1.5.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalLauncher.main(CanalLauncher.java:117) ~[canal.deployer-1.1.5.jar:na]
+2021-05-14 11:01:00.717 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## set default uncaught exception handler
+2021-05-14 11:01:00.769 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## load canal configurations
+2021-05-14 11:01:00.991 [main] ERROR com.alibaba.otter.canal.deployer.CanalLauncher - ## Something goes wrong when starting up the canal Server:
+com.alibaba.otter.canal.common.CanalException: Start RabbitMQ producer error
+Caused by: java.net.UnknownHostException: 192.168.5.4 ## æ³¨æä¸è¦å ç«¯å£å·ï¼ä¸ç¶ä¼æ¥IPV6éè¯¯ã: nodename nor servname provided, or not known
+	at java.net.Inet4AddressImpl.lookupAllHostAddr(Native Method) ~[na:1.8.0_221]
+	at java.net.InetAddress$2.lookupAllHostAddr(InetAddress.java:929) ~[na:1.8.0_221]
+	at java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1324) ~[na:1.8.0_221]
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1277) ~[na:1.8.0_221]
+	at java.net.InetAddress.getAllByName(InetAddress.java:1193) ~[na:1.8.0_221]
+	at java.net.InetAddress.getAllByName(InetAddress.java:1127) ~[na:1.8.0_221]
+	at com.rabbitmq.client.DnsRecordIpAddressResolver.resolveIpAddresses(DnsRecordIpAddressResolver.java:83) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.DnsRecordIpAddressResolver.getAddresses(DnsRecordIpAddressResolver.java:73) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.impl.recovery.RecoveryAwareAMQConnectionFactory.newConnection(RecoveryAwareAMQConnectionFactory.java:58) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.impl.recovery.AutorecoveringConnection.init(AutorecoveringConnection.java:156) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1104) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1063) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1021) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1180) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.alibaba.otter.canal.connector.rabbitmq.producer.CanalRabbitMQProducer.init(CanalRabbitMQProducer.java:76) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalStarter.start(CanalStarter.java:72) ~[canal.deployer-1.1.5.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalLauncher.main(CanalLauncher.java:117) ~[canal.deployer-1.1.5.jar:na]
+2021-05-14 11:01:17.393 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## set default uncaught exception handler
+2021-05-14 11:01:17.435 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## load canal configurations
+2021-05-14 11:01:17.541 [main] ERROR com.alibaba.otter.canal.deployer.CanalLauncher - ## Something goes wrong when starting up the canal Server:
+com.alibaba.otter.canal.common.CanalException: Start RabbitMQ producer error
+Caused by: java.net.UnknownHostException: 192.168.5.4 ## æ³¨æä¸è¦å ç«¯å£å·ï¼ä¸ç¶ä¼æ¥IPV6éè¯¯ã: nodename nor servname provided, or not known
+	at java.net.Inet4AddressImpl.lookupAllHostAddr(Native Method) ~[na:1.8.0_221]
+	at java.net.InetAddress$2.lookupAllHostAddr(InetAddress.java:929) ~[na:1.8.0_221]
+	at java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1324) ~[na:1.8.0_221]
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1277) ~[na:1.8.0_221]
+	at java.net.InetAddress.getAllByName(InetAddress.java:1193) ~[na:1.8.0_221]
+	at java.net.InetAddress.getAllByName(InetAddress.java:1127) ~[na:1.8.0_221]
+	at com.rabbitmq.client.DnsRecordIpAddressResolver.resolveIpAddresses(DnsRecordIpAddressResolver.java:83) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.DnsRecordIpAddressResolver.getAddresses(DnsRecordIpAddressResolver.java:73) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.impl.recovery.RecoveryAwareAMQConnectionFactory.newConnection(RecoveryAwareAMQConnectionFactory.java:58) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.impl.recovery.AutorecoveringConnection.init(AutorecoveringConnection.java:156) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1104) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1063) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1021) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1180) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.alibaba.otter.canal.connector.rabbitmq.producer.CanalRabbitMQProducer.init(CanalRabbitMQProducer.java:76) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalStarter.start(CanalStarter.java:72) ~[canal.deployer-1.1.5.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalLauncher.main(CanalLauncher.java:117) ~[canal.deployer-1.1.5.jar:na]
+2021-05-14 11:14:30.286 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## set default uncaught exception handler
+2021-05-14 11:14:30.331 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## load canal configurations
+2021-05-14 11:14:30.573 [AMQP Connection 127.0.0.1:5672] WARN  com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occured (Exception message: Connection reset)
+2021-05-14 11:14:30.594 [main] ERROR com.alibaba.otter.canal.deployer.CanalLauncher - ## Something goes wrong when starting up the canal Server:
+com.alibaba.otter.canal.common.CanalException: Start RabbitMQ producer error
+Caused by: com.rabbitmq.client.AuthenticationFailureException: ACCESS_REFUSED - Login was refused using authentication mechanism PLAIN. For details see the broker logfile.
+	at com.rabbitmq.client.impl.AMQConnection.start(AMQConnection.java:364) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.impl.recovery.RecoveryAwareAMQConnectionFactory.newConnection(RecoveryAwareAMQConnectionFactory.java:64) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.impl.recovery.AutorecoveringConnection.init(AutorecoveringConnection.java:156) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1104) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1063) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1021) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1180) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.alibaba.otter.canal.connector.rabbitmq.producer.CanalRabbitMQProducer.init(CanalRabbitMQProducer.java:76) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalStarter.start(CanalStarter.java:72) ~[canal.deployer-1.1.5.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalLauncher.main(CanalLauncher.java:117) ~[canal.deployer-1.1.5.jar:na]
+2021-05-14 13:44:26.874 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## set default uncaught exception handler
+2021-05-14 13:44:26.924 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## load canal configurations
+2021-05-14 13:44:27.435 [AMQP Connection 127.0.0.1:5672] WARN  com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occured (Exception message: Socket closed)
+2021-05-14 13:44:27.453 [main] ERROR com.alibaba.otter.canal.deployer.CanalLauncher - ## Something goes wrong when starting up the canal Server:
+com.alibaba.otter.canal.common.CanalException: Start RabbitMQ producer error
+Caused by: com.rabbitmq.client.AuthenticationFailureException: ACCESS_REFUSED - Login was refused using authentication mechanism PLAIN. For details see the broker logfile.
+	at com.rabbitmq.client.impl.AMQConnection.start(AMQConnection.java:364) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.impl.recovery.RecoveryAwareAMQConnectionFactory.newConnection(RecoveryAwareAMQConnectionFactory.java:64) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.impl.recovery.AutorecoveringConnection.init(AutorecoveringConnection.java:156) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1104) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1063) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1021) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1180) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.alibaba.otter.canal.connector.rabbitmq.producer.CanalRabbitMQProducer.init(CanalRabbitMQProducer.java:76) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalStarter.start(CanalStarter.java:72) ~[canal.deployer-1.1.5.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalLauncher.main(CanalLauncher.java:117) ~[canal.deployer-1.1.5.jar:na]
+2021-05-14 13:55:22.465 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## set default uncaught exception handler
+2021-05-14 13:55:22.512 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## load canal configurations
+2021-05-14 13:55:22.737 [AMQP Connection 127.0.0.1:5672] WARN  com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occured (Exception message: Connection reset)
+2021-05-14 13:55:22.757 [main] ERROR com.alibaba.otter.canal.deployer.CanalLauncher - ## Something goes wrong when starting up the canal Server:
+com.alibaba.otter.canal.common.CanalException: Start RabbitMQ producer error
+Caused by: com.rabbitmq.client.AuthenticationFailureException: ACCESS_REFUSED - Login was refused using authentication mechanism PLAIN. For details see the broker logfile.
+	at com.rabbitmq.client.impl.AMQConnection.start(AMQConnection.java:364) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.impl.recovery.RecoveryAwareAMQConnectionFactory.newConnection(RecoveryAwareAMQConnectionFactory.java:64) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.impl.recovery.AutorecoveringConnection.init(AutorecoveringConnection.java:156) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1104) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1063) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1021) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1180) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.alibaba.otter.canal.connector.rabbitmq.producer.CanalRabbitMQProducer.init(CanalRabbitMQProducer.java:76) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalStarter.start(CanalStarter.java:72) ~[canal.deployer-1.1.5.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalLauncher.main(CanalLauncher.java:117) ~[canal.deployer-1.1.5.jar:na]
+2021-05-14 14:08:35.953 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## set default uncaught exception handler
+2021-05-14 14:08:36.038 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## load canal configurations
+2021-05-14 14:08:36.315 [main] ERROR com.alibaba.otter.canal.deployer.CanalLauncher - ## Something goes wrong when starting up the canal Server:
+java.lang.IllegalStateException: Invalid configuration: 'virtualHost' must be non-null.
+	at com.rabbitmq.client.impl.AMQImpl$Connection$Open.<init>(AMQImpl.java:523) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.AMQP$Connection$Open$Builder.build(AMQP.java:248) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.impl.AMQConnection.start(AMQConnection.java:405) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.impl.recovery.RecoveryAwareAMQConnectionFactory.newConnection(RecoveryAwareAMQConnectionFactory.java:64) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.impl.recovery.AutorecoveringConnection.init(AutorecoveringConnection.java:156) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1104) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1063) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1021) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1180) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.alibaba.otter.canal.connector.rabbitmq.producer.CanalRabbitMQProducer.init(CanalRabbitMQProducer.java:76) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalStarter.start(CanalStarter.java:72) ~[canal.deployer-1.1.5.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalLauncher.main(CanalLauncher.java:117) ~[canal.deployer-1.1.5.jar:na]
+2021-05-14 14:08:46.223 [AMQP Connection 127.0.0.1:5672] WARN  com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occured (Exception message: Connection reset)
+2021-05-14 14:09:32.407 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## set default uncaught exception handler
+2021-05-14 14:09:32.455 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## load canal configurations
+2021-05-14 14:09:32.761 [AMQP Connection 127.0.0.1:5672] WARN  com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occured (Exception message: Socket closed)
+2021-05-14 14:09:32.777 [main] ERROR com.alibaba.otter.canal.deployer.CanalLauncher - ## Something goes wrong when starting up the canal Server:
+com.alibaba.otter.canal.common.CanalException: Start RabbitMQ producer error
+Caused by: java.io.IOException: null
+	at com.rabbitmq.client.impl.AMQChannel.wrap(AMQChannel.java:129) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.impl.AMQChannel.wrap(AMQChannel.java:125) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.impl.AMQChannel.exnWrappingRpc(AMQChannel.java:147) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.impl.AMQConnection.start(AMQConnection.java:403) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.impl.recovery.RecoveryAwareAMQConnectionFactory.newConnection(RecoveryAwareAMQConnectionFactory.java:64) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.impl.recovery.AutorecoveringConnection.init(AutorecoveringConnection.java:156) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1104) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1063) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1021) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1180) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.alibaba.otter.canal.connector.rabbitmq.producer.CanalRabbitMQProducer.init(CanalRabbitMQProducer.java:76) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalStarter.start(CanalStarter.java:72) ~[canal.deployer-1.1.5.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalLauncher.main(CanalLauncher.java:117) ~[canal.deployer-1.1.5.jar:na]
+Caused by: com.rabbitmq.client.ShutdownSignalException: connection error; protocol method: #method<connection.close>(reply-code=530, reply-text=NOT_ALLOWED - vhost 127.0.0.1:5672 not found, class-id=10, method-id=40)
+	at com.rabbitmq.utility.ValueOrException.getValue(ValueOrException.java:66) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.utility.BlockingValueOrException.uninterruptibleGetValue(BlockingValueOrException.java:36) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.impl.AMQChannel$BlockingRpcContinuation.getReply(AMQChannel.java:499) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.impl.AMQChannel.privateRpc(AMQChannel.java:292) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.impl.AMQChannel.exnWrappingRpc(AMQChannel.java:141) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	... 10 common frames omitted
+2021-05-14 14:13:18.982 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## set default uncaught exception handler
+2021-05-14 14:13:19.032 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## load canal configurations
+2021-05-14 14:13:19.361 [AMQP Connection 127.0.0.1:5672] WARN  com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occured (Exception message: Socket closed)
+2021-05-14 14:13:19.376 [main] ERROR com.alibaba.otter.canal.deployer.CanalLauncher - ## Something goes wrong when starting up the canal Server:
+com.alibaba.otter.canal.common.CanalException: Start RabbitMQ producer error
+Caused by: java.io.IOException: null
+	at com.rabbitmq.client.impl.AMQChannel.wrap(AMQChannel.java:129) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.impl.AMQChannel.wrap(AMQChannel.java:125) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.impl.AMQChannel.exnWrappingRpc(AMQChannel.java:147) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.impl.AMQConnection.start(AMQConnection.java:403) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.impl.recovery.RecoveryAwareAMQConnectionFactory.newConnection(RecoveryAwareAMQConnectionFactory.java:64) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.impl.recovery.AutorecoveringConnection.init(AutorecoveringConnection.java:156) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1104) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1063) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1021) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1180) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.alibaba.otter.canal.connector.rabbitmq.producer.CanalRabbitMQProducer.init(CanalRabbitMQProducer.java:76) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalStarter.start(CanalStarter.java:72) ~[canal.deployer-1.1.5.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalLauncher.main(CanalLauncher.java:117) ~[canal.deployer-1.1.5.jar:na]
+Caused by: com.rabbitmq.client.ShutdownSignalException: connection error; protocol method: #method<connection.close>(reply-code=530, reply-text=NOT_ALLOWED - vhost 127.0.0.1:5672 not found, class-id=10, method-id=40)
+	at com.rabbitmq.utility.ValueOrException.getValue(ValueOrException.java:66) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.utility.BlockingValueOrException.uninterruptibleGetValue(BlockingValueOrException.java:36) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.impl.AMQChannel$BlockingRpcContinuation.getReply(AMQChannel.java:499) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.impl.AMQChannel.privateRpc(AMQChannel.java:292) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	at com.rabbitmq.client.impl.AMQChannel.exnWrappingRpc(AMQChannel.java:141) ~[connector.rabbitmq-1.1.5-jar-with-dependencies.jar:na]
+	... 10 common frames omitted
+2021-05-14 15:26:16.078 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## set default uncaught exception handler
+2021-05-14 15:26:16.120 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## load canal configurations
+2021-05-14 15:26:16.153 [main] ERROR com.alibaba.otter.canal.deployer.CanalLauncher - ## Something goes wrong when starting up the canal Server:
+java.lang.NullPointerException: null
+	at com.alibaba.otter.canal.deployer.CanalStarter.start(CanalStarter.java:68) ~[canal.deployer-1.1.5.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalLauncher.main(CanalLauncher.java:117) ~[canal.deployer-1.1.5.jar:na]
+2021-05-14 15:27:05.166 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## set default uncaught exception handler
+2021-05-14 15:27:05.210 [main] INFO  com.alibaba.otter.canal.deployer.CanalLauncher - ## load canal configurations
+2021-05-14 15:27:05.245 [main] ERROR com.alibaba.otter.canal.deployer.CanalLauncher - ## Something goes wrong when starting up the canal Server:
+java.lang.NullPointerException: null
+	at com.alibaba.otter.canal.deployer.CanalStarter.start(CanalStarter.java:68) ~[canal.deployer-1.1.5.jar:na]
+	at com.alibaba.otter.canal.deployer.CanalLauncher.main(CanalLauncher.java:117) ~[canal.deployer-1.1.5.jar:na]
