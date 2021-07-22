@@ -35,8 +35,8 @@ $ex->setName($exchangeName);
  * 三、其他设置
  */
 $ex->setType(AMQP_EX_TYPE_DIRECT);
-$ex->setFlags(AMQP_DURABLE);
-$ex->declareExchange();
+$ex->setFlags(AMQP_DURABLE);//设置交换机持久
+$ex->declareExchange();//声明交换机
 /**
  * 四、发送消息
  */
