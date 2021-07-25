@@ -2,8 +2,127 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4553f94-1cb4-4539-8b88-63604efb6d62" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/fuseRabbitmq/consumer.php" beforeDir="false" afterPath="$PROJECT_DIR$/fuseRabbitmq/consumer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fuseRabbitmq/publisher.php" beforeDir="false" afterPath="$PROJECT_DIR$/fuseRabbitmq/publisher.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/12-安装canal服务.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tmpserverCellar/bin/canal.pid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tmpserverCellar/conf/example/h2.mv.db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tmpserverCellar/logs/canal/canal.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tmpserverCellar/logs/canal/canal_stdout.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tmpserverCellar/logs/example/example.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/binLog-2020-09-29.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/binLog-2020-10-15.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/business-2020-09-29.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/business-2020-10-15.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/err-2020-09-29.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/err-2021-04-17.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/events-2020-09-29.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/events-2020-10-15.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/events-2021-04-17.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/events-2021-04-18.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/msgFilterMiddle-2020-09-29.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/msgFilterMiddle-2020-10-15.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/spend-2020-09-29.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/spend-2020-10-15.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/spend-2021-04-17.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/swoole.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/bin/canal.pid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/bin/restart.sh" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/bin/restart.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/bin/startup.bat" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/bin/startup.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/bin/startup.sh" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/bin/startup.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/bin/stop.sh" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/bin/stop.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/conf/canal.properties" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/conf/canal.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/conf/canal_local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/conf/canal_local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/conf/example/h2.mv.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/conf/example/h2.trace.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/conf/example/instance.properties" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/conf/example/instance.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/conf/logback.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/conf/logback.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/conf/metrics/Canal_instances_tmpl.json" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/conf/metrics/Canal_instances_tmpl.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/conf/spring/base-instance.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/conf/spring/base-instance.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/conf/spring/default-instance.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/conf/spring/default-instance.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/conf/spring/file-instance.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/conf/spring/file-instance.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/conf/spring/group-instance.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/conf/spring/group-instance.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/conf/spring/memory-instance.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/conf/spring/memory-instance.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/conf/spring/tsdb/h2-tsdb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/conf/spring/tsdb/h2-tsdb.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/conf/spring/tsdb/mysql-tsdb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/conf/spring/tsdb/mysql-tsdb.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/conf/spring/tsdb/sql-map/sqlmap-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/conf/spring/tsdb/sql-map/sqlmap-config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/conf/spring/tsdb/sql-map/sqlmap_history.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/conf/spring/tsdb/sql-map/sqlmap_history.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/conf/spring/tsdb/sql-map/sqlmap_snapshot.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/conf/spring/tsdb/sql-map/sqlmap_snapshot.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/conf/spring/tsdb/sql/create_table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/conf/spring/tsdb/sql/create_table.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/dump.rdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/animal-sniffer-annotations-1.14.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/animal-sniffer-annotations-1.14.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/aviator-2.2.1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/aviator-2.2.1.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/canal.common-1.1.5.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/canal.common-1.1.5.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/canal.deployer-1.1.5.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/canal.deployer-1.1.5.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/canal.filter-1.1.5.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/canal.filter-1.1.5.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/canal.instance.core-1.1.5.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/canal.instance.core-1.1.5.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/canal.instance.manager-1.1.5.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/canal.instance.manager-1.1.5.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/canal.instance.spring-1.1.5.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/canal.instance.spring-1.1.5.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/canal.meta-1.1.5.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/canal.meta-1.1.5.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/canal.parse-1.1.5.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/canal.parse-1.1.5.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/canal.parse.dbsync-1.1.5.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/canal.parse.dbsync-1.1.5.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/canal.parse.driver-1.1.5.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/canal.parse.driver-1.1.5.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/canal.prometheus-1.1.5.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/canal.prometheus-1.1.5.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/canal.protocol-1.1.5.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/canal.protocol-1.1.5.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/canal.server-1.1.5.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/canal.server-1.1.5.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/canal.sink-1.1.5.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/canal.sink-1.1.5.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/canal.store-1.1.5.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/canal.store-1.1.5.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/commons-beanutils-1.8.2.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/commons-beanutils-1.8.2.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/commons-codec-1.9.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/commons-codec-1.9.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/commons-compress-1.9.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/commons-compress-1.9.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/commons-io-2.4.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/commons-io-2.4.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/commons-lang-2.6.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/commons-lang-2.6.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/commons-lang3-3.7.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/commons-lang3-3.7.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/commons-logging-1.2.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/commons-logging-1.2.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/connector.core-1.1.5.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/connector.core-1.1.5.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/disruptor-3.4.2.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/disruptor-3.4.2.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/druid-1.2.6.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/druid-1.2.6.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/error_prone_annotations-2.0.18.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/error_prone_annotations-2.0.18.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/fastjson-1.2.58.sec06.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/fastjson-1.2.58.sec06.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/guava-22.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/guava-22.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/h2-1.4.196.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/h2-1.4.196.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/httpclient-4.5.1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/httpclient-4.5.1.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/httpcore-4.4.3.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/httpcore-4.4.3.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/j2objc-annotations-1.1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/j2objc-annotations-1.1.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/javax.annotation-api-1.3.2.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/javax.annotation-api-1.3.2.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/jcl-over-slf4j-1.7.12.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/jcl-over-slf4j-1.7.12.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/jctools-core-2.1.2.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/jctools-core-2.1.2.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/joda-time-2.9.4.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/joda-time-2.9.4.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/jsr305-3.0.2.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/jsr305-3.0.2.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/logback-classic-1.1.3.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/logback-classic-1.1.3.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/logback-core-1.1.3.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/logback-core-1.1.3.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/mybatis-3.5.4.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/mybatis-3.5.4.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/mybatis-spring-2.0.4.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/mybatis-spring-2.0.4.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/mysql-connector-java-5.1.48.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/mysql-connector-java-5.1.48.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/netty-3.2.2.Final.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/netty-3.2.2.Final.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/netty-all-4.1.6.Final.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/netty-all-4.1.6.Final.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/oro-2.0.8.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/oro-2.0.8.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/protobuf-java-3.6.1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/protobuf-java-3.6.1.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/simpleclient-0.4.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/simpleclient-0.4.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/simpleclient_common-0.4.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/simpleclient_common-0.4.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/simpleclient_hotspot-0.4.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/simpleclient_hotspot-0.4.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/simpleclient_httpserver-0.4.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/simpleclient_httpserver-0.4.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/simpleclient_pushgateway-0.4.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/simpleclient_pushgateway-0.4.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/slf4j-api-1.7.12.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/slf4j-api-1.7.12.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/spring-aop-5.0.5.RELEASE.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/spring-aop-5.0.5.RELEASE.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/spring-beans-5.0.5.RELEASE.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/spring-beans-5.0.5.RELEASE.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/spring-context-5.0.5.RELEASE.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/spring-context-5.0.5.RELEASE.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/spring-core-5.0.5.RELEASE.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/spring-core-5.0.5.RELEASE.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/spring-expression-5.0.5.RELEASE.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/spring-expression-5.0.5.RELEASE.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/spring-jcl-5.0.5.RELEASE.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/spring-jcl-5.0.5.RELEASE.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/spring-jdbc-5.0.5.RELEASE.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/spring-jdbc-5.0.5.RELEASE.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/spring-orm-5.0.5.RELEASE.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/spring-orm-5.0.5.RELEASE.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/spring-tx-5.0.5.RELEASE.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/spring-tx-5.0.5.RELEASE.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/zkclient-0.10.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/zkclient-0.10.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/lib/zookeeper-3.4.5.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/lib/zookeeper-3.4.5.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/logs/canal/2021-05-13/canal-2021-05-13-0.log.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/logs/canal/canal.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/logs/canal/canal_stdout.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/logs/example/example.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/logs/example/meta.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/plugin/connector.kafka-1.1.5-jar-with-dependencies.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/plugin/connector.kafka-1.1.5-jar-with-dependencies.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/plugin/connector.rabbitmq-1.1.5-jar-with-dependencies.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/plugin/connector.rabbitmq-1.1.5-jar-with-dependencies.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/plugin/connector.rocketmq-1.1.5-jar-with-dependencies.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tmpserverCellar/plugin/connector.rocketmq-1.1.5-jar-with-dependencies.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCellar/readme.txt" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,27 +134,26 @@
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fuseRabbitmq/publisher.php">
+        <entry file="file://$PROJECT_DIR$/docs/12-安装canal服务.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="38" column="30" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
-              <folding>
-                <element signature="e#6#187#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="42">
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/fuseRabbitmq/consumer.php">
+        <entry file="file://$PROJECT_DIR$/docs/13-支持rabbitmq.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/servercanal/conf/example/instance.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="477">
-              <caret line="71" column="1" selection-start-line="71" selection-start-column="1" selection-end-line="71" selection-end-column="1" />
-              <folding>
-                <element signature="e#6#90#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="294">
+              <caret line="21" selection-start-line="21" selection-end-line="22" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -79,6 +197,8 @@
         <option value="$PROJECT_DIR$/serverCellar/conf/canal.properties" />
         <option value="$PROJECT_DIR$/fuseRabbitmq/publisher.php" />
         <option value="$PROJECT_DIR$/fuseRabbitmq/consumer.php" />
+        <option value="$PROJECT_DIR$/serverCanal/conf/example/instance.properties" />
+        <option value="$PROJECT_DIR$/docs/12-安装canal服务.txt" />
       </list>
     </option>
   </component>
@@ -91,10 +211,11 @@
       <path value="$PROJECT_DIR$/vendor/composer" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="25" />
-    <option name="width" value="1280" />
-    <option name="height" value="734" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="995" />
+    <option name="y" value="61" />
+    <option name="width" value="1000" />
+    <option name="height" value="977" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -111,7 +232,7 @@
             <path>
               <item name="canalphp_for_xh_sync" type="b2602c69:ProjectViewProjectNode" />
               <item name="canalphp_for_xh_sync" type="462c0819:PsiDirectoryNode" />
-              <item name="fuseRabbitmq" type="462c0819:PsiDirectoryNode" />
+              <item name="docs" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -168,18 +289,21 @@
       <workItem from="1620971042647" duration="1787000" />
       <workItem from="1626080190610" duration="1160000" />
       <workItem from="1626087516082" duration="5000" />
-      <workItem from="1626942386098" duration="2400000" />
+      <workItem from="1626942386098" duration="2843000" />
+      <workItem from="1627003032326" duration="3000" />
+      <workItem from="1627123471297" duration="2857000" />
+      <workItem from="1627200931119" duration="1857000" />
+      <workItem from="1627214081734" duration="1677000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19652000" />
+    <option name="totallyTimeSpent" value="26489000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="25" width="1280" height="734" extended-state="6" />
-    <editor active="true" />
+    <frame x="995" y="61" width="1000" height="977" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1930533" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3841336" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -204,67 +328,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/logs/spend-2021-04-17.log">
-      <provider selected="true" editor-type-id="LogFileEditorProvider" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/logs/err-2021-04-17.log">
-      <provider selected="true" editor-type-id="LogFileEditorProvider" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/initSw说明.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/canal_server_conf/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/canal_server_conf/说明.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/business/service/MsgFilterMiddle.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="868">
-          <caret line="62" column="21" selection-start-line="62" selection-start-column="21" selection-end-line="62" selection-end-column="21" />
-          <folding>
-            <element signature="e#6#105#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/business/config/conf_for_entry_local.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="28" column="6" selection-start-line="28" selection-start-column="6" selection-end-line="28" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fuse/mq.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fuse/Consumer.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fuse/retry.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fuse/Readme.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fuse/queueForBusiness.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fuse/queueArr.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fuse/queue.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fuse/PhpFuse.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/fuse/pail_v2.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -308,12 +371,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/serverCellar/logs/canal/canal_stdout.log">
-      <provider selected="true" editor-type-id="LogFileEditorProvider" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/serverCellar/logs/canal/canal.log">
-      <provider selected="true" editor-type-id="LogFileEditorProvider" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -324,38 +381,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/logs/swoole.log">
-      <provider selected="true" editor-type-id="LogFileEditorProvider" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/logs/binLog-2020-10-15.log">
-      <provider selected="true" editor-type-id="LogFileEditorProvider" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/logs/swoole.log" />
+    <entry file="file://$PROJECT_DIR$/logs/binLog-2020-10-15.log" />
     <entry file="file://$PROJECT_DIR$/fuse/test222.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/startService.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/serverCellar/readme.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/serverCellar/conf/canal_local.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/extCellarBak/conf/example/instance.properties.bak_v425" />
-    <entry file="file://$PROJECT_DIR$/serverCellar/logs/example/example.log">
-      <provider selected="true" editor-type-id="LogFileEditorProvider">
-        <state relative-caret-position="-10" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/composer.lock" />
     <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
@@ -382,16 +413,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/client.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="19" column="23" lean-forward="true" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
-          <folding>
-            <element signature="e#145#181#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/client.php">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -399,13 +420,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/serverCellar/conf/example/meta.dat" />
-    <entry file="file://$PROJECT_DIR$/serverCellar/conf/canal.properties">
+    <entry file="file://$PROJECT_DIR$/tmpserverCellar/conf/example/meta.dat" />
+    <entry file="file://$PROJECT_DIR$/serverCellar/conf/example/h2.trace.db" />
+    <entry file="file://$PROJECT_DIR$/fuseRabbitmq/使用说明.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="165" column="30" selection-start-line="165" selection-start-column="30" selection-end-line="165" selection-end-column="30" />
+        <state relative-caret-position="28">
+          <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="16" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fuseRabbitmq/consumer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="431">
+          <caret line="51" column="11" selection-start-line="51" selection-start-column="11" selection-end-line="51" selection-end-column="11" />
+          <folding>
+            <element signature="e#6#90#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fuseRabbitmq/publisher.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="473">
+          <caret line="38" column="30" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
+          <folding>
+            <element signature="e#6#187#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/二期需求-合同相关.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/二期需求.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/mixphp开发笔记.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/fy同步厂发NET代码.cs">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/docker使用说明v2_up_at_2020927.txt">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/docs/docker安装redis.so扩展_9_25.txt">
       <provider selected="true" editor-type-id="text-editor">
@@ -414,18 +471,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/serverCellar/conf/example/instance.properties">
+    <entry file="file://$PROJECT_DIR$/public/client.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="700">
-          <caret line="49" column="23" lean-forward="true" selection-start-line="49" selection-start-column="23" selection-end-line="49" selection-end-column="23" />
+        <state relative-caret-position="140">
+          <caret line="10" column="46" lean-forward="true" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="46" />
+          <folding>
+            <element signature="e#6#105#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/serverCellar/conf/example/h2.trace.db">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/二期需求-合同相关.txt">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/docs/11-配置rabbit报错.txt">
       <provider selected="true" editor-type-id="text-editor">
@@ -434,30 +488,91 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fuseRabbitmq/使用说明.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="16" />
+    <entry file="file://$PROJECT_DIR$/docs/canalphp使用说明.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SECOND">
+          <first_editor />
+          <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fuseRabbitmq/publisher.php">
+    <entry file="file://$PROJECT_DIR$/docs/initSw说明.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/startService.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="38" column="30" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
-          <folding>
-            <element signature="e#6#187#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="112">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fuseRabbitmq/consumer.php">
+    <entry file="file://$PROJECT_DIR$/docs/canalphp服务脚本说明.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmpserverCellar/bin/restart.sh">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmpserverCellar/bin/stop.sh">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmpserverCellar/bin/startup.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="477">
-          <caret line="71" column="1" selection-start-line="71" selection-start-column="1" selection-end-line="71" selection-end-column="1" />
-          <folding>
-            <element signature="e#6#90#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="210">
+          <caret line="15" column="23" lean-forward="true" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serverCellar/logs/example/meta.log" />
+    <entry file="file://$PROJECT_DIR$/tmpserverCellar/logs/example/example.log">
+      <provider selected="true" editor-type-id="LogFileEditorProvider">
+        <state relative-caret-position="-1400" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmpserverCellar/logs/canal/canal_stdout.log">
+      <provider selected="true" editor-type-id="LogFileEditorProvider">
+        <state relative-caret-position="-337" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmpserverCellar/conf/canal_local.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmpserverCellar/conf/logback.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-14" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmpserverCellar/logs/canal/canal.log">
+      <provider selected="true" editor-type-id="LogFileEditorProvider" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmpserverCellar/bin/startup.bat">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serverCellar/readme.txt" />
+    <entry file="file://$PROJECT_DIR$/tmpserverCellar/conf/example/instance.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="10" column="31" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmpserverCellar/conf/canal.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="863">
+          <caret line="143" column="19" selection-start-line="143" selection-start-column="19" selection-end-line="143" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/servercanal/conf/example/instance.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="21" selection-start-line="21" selection-end-line="22" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/12-安装canal服务.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
