@@ -1,0 +1,14 @@
+
+
+参考资料：https://www.cnblogs.com/liuxinyustu/articles/13545161.html
+
+
+新建队列
+
+➜  sbin rabbitmqadmin declare exchange --vhost=/ name=exchange.trade.order type=topic durable=true  --username=guest --password=guest
+exchange declared
+
+
+rabbitmqadmin declare queue --vhost=/ name=exchange.trade.order  durable=true --username=guest --password=guest
+
+rabbitmqadmin --vhost=/ declare bindingsource="exchange.trade.order" destination_type="queue" destination="exchange.trade.order" routing_key="example" --username=guest --password=guest

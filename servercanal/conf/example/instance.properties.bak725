@@ -24,6 +24,4 @@ canal.instance.filter.regex = .*\\..*
 # table black regex
 canal.instance.filter.black.regex =  
 
-canal.mq.topic=example# 路由键
-
 #################################################

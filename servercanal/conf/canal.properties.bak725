@@ -65,15 +65,3 @@ canal.instance.global.lazy = false
 #canal.instance.global.spring.xml = classpath:spring/memory-instance.xml
 canal.instance.global.spring.xml = classpath:spring/file-instance.xml
 #canal.instance.global.spring.xml = classpath:spring/default-instance.xml
-
-
-#新增支持rabbitmq @2021-7-25
-# 指定rabbitmq
-canal.serverMode = rabbitmq
-
-# rabbitmq 设置
-canal.mq.servers = http://127.0.0.1## 注意不要加端口号，不然会报IPV6错误。
-canal.mq.vhost=/
-canal.mq.exchange=exchange.trade.order
-canal.mq.username=guest
-canal.mq.password=guest
